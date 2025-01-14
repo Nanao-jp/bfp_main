@@ -12,6 +12,20 @@ export default {
         background: "var(--background)",
         foreground: "var(--foreground)",
       },
+      backgroundImage: {
+        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+      },
+      keyframes: {
+        kenburns: {
+          '0%': { transform: 'scale(1.0)' },
+          '100%': { transform: 'scale(1.1)' },
+        },
+      },
+      animation: {
+        kenburns: 'kenburns 10s ease-out infinite alternate',
+      },
     },
   },
   plugins: [],
