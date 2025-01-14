@@ -19,25 +19,25 @@ export default function Home() {
   // ニュースデータ
   const newsItems: NewsItem[] = [
     {
-      date: "2024.01.20",
-      title: "新規タレント募集開始",
-      summary: "次世代のスターを募集します",
-      content: `新規タレント募集を開始しました。\n\n歌唱力、演技力、ダンススキルなど、あなたの才能を活かせる場所です。\n\n応募資格：\n・15歳以上35歳以下\n・未経験者歓迎\n・プロフェッショナルとしての自覚を持てる方\n\n詳細は応募フォームをご確認ください。`,
-      imageUrl: "/images/news-1.jpg"
+      date: "2025.01.14",
+      title: "協力作品：映画『アンダーニンジャ』公開！",
+      summary: "現代忍者エンターテインメント開幕",
+      content: `公式HP：<a href="https://underninja-mv.com/" target="_blank" class="text-[#9EFF00] hover:underline">https://underninja-mv.com/</a>\n\n忍者ニンジャは世界中に忍び、現代いまでも暗躍している。\n\nその数、約20万人――。\n誰も観たことが無い\n"現代忍者エンターテインメント" が幕を開ける!!`,
+      imageUrl: "/images/ninja.webp"
     },
     {
-      date: "2024.01.18",
-      title: "新作ドラマ出演決定",
-      summary: "所属タレントが話題の新作ドラマに出演",
-      content: `所属タレントの山田太郎が、来期放送予定の新作ドラマ「明日への道」にメインキャストとして出演することが決定しました。\n\n放送開始：2024年4月\n放送局：○○テレビ\n放送時間：毎週金曜日 21:00～`,
-      imageUrl: "/images/news-2.jpg"
+      date: "2025.01.13",
+      title: "テレビ東京開局60周年特別企画ドラマスペシャル『晴れたらいいね』公開！",
+      summary: "永野芽郁主演の感動のヒューマンドラマ",
+      content: `公式HP：<a href="https://www.tv-tokyo.co.jp/haretara/" target="_blank" class="text-[#9EFF00] hover:underline">https://www.tv-tokyo.co.jp/haretara/</a>\n\n永野芽郁 主演\n芳根京子はじめ、萩原利久、江口のりこ、稲垣吾郎 が出演！\n\n現代の看護師が戦時中へタイムスリップ。\n困難な状況を強く生き抜こうとするー　\n"前向きになれる"感動のヒューマンドラマ\n\nテレビ東京開局60周年特別企画「晴れたらいいね」\n2025年1月10日（金）よりPrime Videoで世界配信！`,
+      imageUrl: "/images/haretara.webp"
     },
     {
-      date: "2024.01.15",
-      title: "音楽フェス出演決定",
-      summary: "夏の大型音楽フェスに出演決定",
-      content: `今年の夏に開催される「SUMMER SONIC 2024」への出演が決定しました。\n\n日程：2024年8月15日\n会場：○○スタジアム\n\nチケット情報は後日発表いたします。`,
-      imageUrl: "/images/news-3.jpg"
+      date: "2023.02.14",
+      title: "映画「ゴジラ-1.0」公開！",
+      summary: "第96回アカデミー賞視覚効果賞ノミネート作品",
+      content: `公式HP：<a href="https://godzilla-movie2023.toho.co.jp/" target="_blank" class="text-[#9EFF00] hover:underline">https://godzilla-movie2023.toho.co.jp/</a>\n\n映画「ゴジラ-1.0」2023年11月3日公開\n\n第９６回アカデミー賞視覚効果賞\n第４７回日本アカデミー賞\n\n再優秀賞作品賞、最優秀脚本賞、監督賞、主演男優賞、主演女優賞\n最優秀主演女優賞、最優秀助演女優賞、音楽賞、最優秀賞撮影賞\n最優秀賞撮影賞、最優秀賞録音賞、最優秀賞編集賞、会長特別賞`,
+      imageUrl: "/images/gozira.webp"
     }
   ];
 
@@ -50,13 +50,13 @@ export default function Home() {
         
         <HeroBackground
           videoSrc="/videos/main.mp4"
-          imageSrc="/images/hero-bg.jpg"
+          imageSrc="/images/ninja.webp"
           imageAlt="Hero Background"
         />
       </section>
 
       {/* メインコンテンツ */}
-      <div className="space-y-16 mt-0">
+      <div className="space-y-16 mt-16">
         {/* News & Topicsセクション */}
         <section id="news" className="container mx-auto px-4">
           <SectionTitle icon={SparklesIcon}>News & Topics</SectionTitle>
@@ -68,6 +68,7 @@ export default function Home() {
         </section>
 
         {/* YouTubeセクション */}
+        {/* 一時的にコメントアウト
         <section className="bg-[#1E1E1E] py-16">
           <div className="container mx-auto px-4">
             <SectionTitle icon={VideoCameraIcon}>YouTube Channel</SectionTitle>
@@ -82,8 +83,10 @@ export default function Home() {
             </div>
           </div>
         </section>
+        */}
 
         {/* Collaborationsセクション */}
+        {/* 一時的にコメントアウト - 画像ファイルが必要
         <section className="container mx-auto px-4">
           <SectionTitle icon={FilmIcon}>B.F.P. Collaborations</SectionTitle>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
@@ -102,6 +105,7 @@ export default function Home() {
             ))}
           </div>
         </section>
+        */}
 
         {/* External siteセクション */}
         <section className="bg-[#1E1E1E] py-16">

@@ -39,6 +39,7 @@ export default function NewsCard({
   onClick
 }: NewsCardProps) {
   const [isExpanded, setIsExpanded] = useState(false);
+  const [imageError, setImageError] = useState(false);
 
   const handleClick = () => {
     if (onClick) {
@@ -57,23 +58,23 @@ export default function NewsCard({
   }[aspectRatio];
 
   const CardContent = () => (
-    <div className={`flex-grow p-4 md:p-6 ${contentClassName}`}>
-      <div className="flex justify-between items-start gap-4">
+    <div className={`p-4 md:p-6 flex-grow ${contentClassName}`}>
+      <div className="flex gap-4 items-start">
         <div className="min-w-0 flex-grow">
-          <div className="flex flex-wrap gap-2 items-center mb-2">
+          <div className="flex gap-2 items-center mb-2">
             {category && (
-              <span className="inline-block px-2 py-1 bg-[#9EFF00] text-black text-xs font-bold rounded">
+              <span className="px-2 py-1 bg-[var(--accent-lime)] text-black text-xs font-bold rounded">
                 {category}
               </span>
             )}
-            <span className="text-sm text-[#9EFF00]">{date}</span>
+            <span className="text-[var(--accent-lime)] text-sm">{date}</span>
           </div>
           <h3 className="text-lg md:text-xl font-bold mb-2 line-clamp-2">{title}</h3>
-          <p className="text-gray-300 text-sm md:text-base line-clamp-2 md:line-clamp-none">{summary}</p>
+          <p className="text-gray-300 text-sm md:text-base line-clamp-2">{summary}</p>
         </div>
         {expandable && (
           <ChevronDownIcon 
-            className={`w-6 h-6 text-[#9EFF00] transition-transform flex-shrink-0 ${isExpanded ? 'rotate-180' : ''}`}
+            className={`w-6 h-6 text-[var(--accent-lime)] ${isExpanded ? '-rotate-180' : ''}`}
           />
         )}
       </div>
@@ -83,7 +84,7 @@ export default function NewsCard({
   const Wrapper = ({ children }: { children: React.ReactNode }) => {
     if (link) {
       return (
-        <a href={link} className="block hover:opacity-95 transition-opacity">
+        <a href={link} className="block hover:opacity-90">
           {children}
         </a>
       );
@@ -94,31 +95,31 @@ export default function NewsCard({
   return (
     <Wrapper>
       <div 
-        className={`bg-[#1E1E1E] rounded-lg overflow-hidden border border-[#2D2D2D] hover:border-[#9EFF00] transition-all ${className}`}
+        className={`bg-[var(--dark-surface)] rounded-lg overflow-hidden border border-[var(--dark-surface-2)] hover:border-[var(--accent-lime)] ${className}`}
         onClick={handleClick}
       >
         <div className={`flex flex-col md:flex-row ${expandable ? 'cursor-pointer' : ''}`}>
-          {/* サムネイル */}
-          <div className={`relative w-full md:w-64 ${aspectRatioClass} flex-shrink-0 ${imageClassName}`}>
-            <Image
-              src={imageUrl}
-              alt={title}
-              fill
-              className="object-cover"
-            />
+          <div className={`relative w-full md:w-64 ${aspectRatioClass} ${imageClassName} bg-[var(--dark-surface-2)]`}>
+            {!imageError ? (
+              <Image
+                src={imageUrl}
+                alt={title}
+                fill
+                className="object-cover"
+                onError={() => setImageError(true)}
+                sizes="(max-width: 768px) 100vw, 256px"
+              />
+            ) : (
+              <div className="absolute inset-0 flex items-center justify-center text-gray-400">
+                <span className="text-sm">No image</span>
+              </div>
+            )}
           </div>
           <CardContent />
         </div>
-        {/* 展開時の詳細コンテンツ */}
-        {expandable && content && (
-          <div 
-            className={`overflow-hidden transition-all duration-300 ${
-              isExpanded ? 'max-h-[500px] opacity-100' : 'max-h-0 opacity-0'
-            }`}
-          >
-            <div className="p-4 md:p-6 pt-0 border-t border-[#2D2D2D] mt-4">
-              <p className="text-gray-300 whitespace-pre-line text-sm md:text-base">{content}</p>
-            </div>
+        {expandable && content && isExpanded && (
+          <div className="p-4 md:p-6 pt-0 border-t border-[var(--dark-surface-2)] mt-4">
+            <p className="text-gray-300 text-sm md:text-base whitespace-pre-line" dangerouslySetInnerHTML={{ __html: content }} />
           </div>
         )}
       </div>

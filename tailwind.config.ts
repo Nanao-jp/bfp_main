@@ -26,6 +26,16 @@ export default {
       animation: {
         kenburns: 'kenburns 10s ease-out infinite alternate',
       },
+      transitionProperty: {
+        'height': 'height',
+        'spacing': 'margin, padding',
+      },
+      transitionDuration: {
+        '2000': '2000ms',
+      },
+      transitionTimingFunction: {
+        'bounce-in-out': 'cubic-bezier(0.87, 0, 0.13, 1)',
+      },
     },
   },
   plugins: [],
