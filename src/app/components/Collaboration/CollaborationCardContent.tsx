@@ -5,7 +5,7 @@ export default function CollaborationCardContent({ item, onClick }: Collaboratio
   return (
     <div className="group cursor-pointer" onClick={onClick}>
       <div className="bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300">
-        <div className="relative h-64 sm:h-72 md:h-80">
+        <div className="relative aspect-video overflow-hidden">
           <Image
             src={item.image}
             alt={item.title}
@@ -13,13 +13,6 @@ export default function CollaborationCardContent({ item, onClick }: Collaboratio
             className="object-cover transition-transform duration-500 group-hover:scale-105"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
-          {item.description && (
-            <div className="absolute inset-x-0 bottom-0 p-6">
-              <p className="text-white/80 text-base line-clamp-2 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                {item.description}
-              </p>
-            </div>
-          )}
         </div>
         <div className="p-4 bg-[#1E1E1E] border-t border-[#2D2D2D]">
           <div className="flex items-center justify-between">

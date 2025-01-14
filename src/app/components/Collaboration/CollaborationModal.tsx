@@ -8,11 +8,11 @@ export default function CollaborationModal({ item, onClose }: CollaborationModal
 
   return (
     <div 
-      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80"
+      className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 animate-fadeIn"
       onClick={onClose}
     >
       <div 
-        className="relative w-full max-w-4xl bg-[#1E1E1E] rounded-xl overflow-hidden"
+        className="relative w-full max-w-4xl bg-[#1E1E1E] rounded-xl overflow-hidden animate-modalIn"
         onClick={handleContentClick}
       >
         <div className="relative aspect-video">
@@ -53,6 +53,28 @@ export default function CollaborationModal({ item, onClose }: CollaborationModal
           </svg>
         </button>
       </div>
+      <style jsx global>{`
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        @keyframes modalIn {
+          from {
+            opacity: 0;
+            transform: translateY(10px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .animate-fadeIn {
+          animation: fadeIn 0.3s ease-out forwards;
+        }
+        .animate-modalIn {
+          animation: modalIn 0.3s ease-out forwards;
+        }
+      `}</style>
     </div>
   );
 } 
