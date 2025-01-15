@@ -5,6 +5,7 @@ import { collaborationItems } from "../data/collaborations";
 import CollaborationCard from "../components/Collaboration/CollaborationCard";
 import GlobalModal from "../components/Collaboration/GlobalModal";
 import { CollaborationItem } from '../components/Collaboration/types';
+import Link from 'next/link';
 
 const ITEMS_PER_PAGE = 9;
 
@@ -64,6 +65,15 @@ export default function WorksPage() {
                 ))}
               </ul>
             </nav>
+            <Link
+              href="/works/archive"
+              className="px-4 py-2 rounded-md bg-[#1E1E1E] text-white hover:bg-[#2D2D2D] transition-colors duration-300 flex items-center gap-2"
+            >
+              過去作品
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </Link>
           </div>
         )}
       </div>
