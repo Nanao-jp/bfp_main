@@ -1,61 +1,72 @@
-const works = [
-  {
-    id: 1,
-    title: '明日への道',
-    category: 'ドラマ',
-    releaseDate: '2024年4月放送開始',
-    description: '主演：山田太郎。人生の岐路に立つ主人公が、新たな道を切り開いていく感動作。',
-    cast: ['山田太郎', '佐藤花子'],
-  },
-  {
-    id: 2,
-    title: '笑顔の魔法',
-    category: 'バラエティ',
-    releaseDate: '毎週金曜日放送中',
-    description: 'MC：佐藤花子。視聴者に笑顔と元気を届ける人気バラエティ番組。',
-    cast: ['佐藤花子'],
-  },
-  // 他の作品も同様に追加可能
-];
+'use client';
+
+import { collaborationItems } from "../data/collaborations";
+import CollaborationCardContent from "../components/Collaboration/CollaborationCardContent";
+import CollaborationModal from "../components/Collaboration/CollaborationModal";
+import { useState } from "react";
+import Link from "next/link";
+
+const ITEMS_PER_PAGE = 9;
 
 export default function WorksPage() {
+  const [currentPage, setCurrentPage] = useState(1);
+  const [selectedItem, setSelectedItem] = useState(null);
+  const totalPages = Math.ceil(collaborationItems.length / ITEMS_PER_PAGE);
+
+  const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
+  const endIndex = startIndex + ITEMS_PER_PAGE;
+  const currentItems = collaborationItems.slice(startIndex, endIndex);
+
   return (
-    <div className="space-y-8">
-      <h1 className="text-4xl font-bold mb-8">関連作品</h1>
-      
-      <div className="space-y-6">
-        {works.map((work) => (
-          <div key={work.id} className="bg-white shadow-lg rounded-lg overflow-hidden">
-            <div className="p-6">
-              <div className="flex justify-between items-start">
-                <div>
-                  <h2 className="text-2xl font-bold mb-2">{work.title}</h2>
-                  <span className="inline-block bg-blue-100 text-blue-800 rounded-full px-3 py-1 text-sm font-semibold mb-2">
-                    {work.category}
-                  </span>
-                </div>
-                <span className="text-gray-500">{work.releaseDate}</span>
-              </div>
-              
-              <p className="text-gray-600 mt-4">{work.description}</p>
-              
-              <div className="mt-4">
-                <h3 className="font-semibold text-gray-700">出演者：</h3>
-                <div className="flex flex-wrap gap-2 mt-2">
-                  {work.cast.map((member, index) => (
-                    <span
-                      key={index}
-                      className="bg-gray-100 text-gray-700 rounded-full px-3 py-1 text-sm"
-                    >
-                      {member}
-                    </span>
-                  ))}
-                </div>
-              </div>
-            </div>
+    <main className="min-h-screen bg-[#121212] py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <h1 className="text-4xl font-bold text-white mb-12">B.F.P. Collaborations</h1>
+        
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+          {currentItems.map((item, index) => (
+            <CollaborationCardContent
+              key={index}
+              item={item}
+              onClick={() => setSelectedItem(item)}
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center items-center gap-4 mt-8">
+          <div className="flex gap-2">
+            {Array.from({ length: totalPages }, (_, i) => i + 1).map((page) => (
+              <button
+                key={page}
+                onClick={() => setCurrentPage(page)}
+                className={`px-4 py-2 rounded-md transition-colors duration-300 ${
+                  currentPage === page
+                    ? 'bg-[var(--accent-lime)] text-black font-bold'
+                    : 'bg-[#1E1E1E] text-white hover:bg-[#2D2D2D]'
+                }`}
+              >
+                {page}
+              </button>
+            ))}
           </div>
-        ))}
+          <div className="w-px h-8 bg-gray-600 mx-4" />
+          <Link
+            href="/works/archive"
+            className="px-6 py-2 rounded-md bg-[#1E1E1E] text-white hover:bg-[#2D2D2D] transition-colors duration-300 flex items-center gap-2"
+          >
+            過去作品
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+            </svg>
+          </Link>
+        </div>
       </div>
-    </div>
+
+      {selectedItem && (
+        <CollaborationModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
+    </main>
   );
 } 

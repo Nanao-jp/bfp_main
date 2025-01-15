@@ -27,9 +27,9 @@ export default function CollaborationModal({ item, onClose }: CollaborationModal
           <div className="flex justify-between items-start">
             <h2 className="text-2xl font-bold text-white">{item.title}</h2>
             {item.link && (
-              <a 
-                href={item.link} 
-                target="_blank" 
+              <a
+                href={item.link}
+                target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center text-sm text-[var(--accent-lime)] hover:underline"
               >
@@ -41,7 +41,7 @@ export default function CollaborationModal({ item, onClose }: CollaborationModal
             )}
           </div>
           {item.description && (
-            <p className="text-white/80 text-lg leading-relaxed">{item.description}</p>
+            <p className="text-white/80 text-lg leading-relaxed whitespace-pre-line">{item.description}</p>
           )}
         </div>
         <button
@@ -53,28 +53,6 @@ export default function CollaborationModal({ item, onClose }: CollaborationModal
           </svg>
         </button>
       </div>
-      <style jsx global>{`
-        @keyframes fadeIn {
-          from { opacity: 0; }
-          to { opacity: 1; }
-        }
-        @keyframes modalIn {
-          from {
-            opacity: 0;
-            transform: translateY(10px);
-          }
-          to {
-            opacity: 1;
-            transform: translateY(0);
-          }
-        }
-        .animate-fadeIn {
-          animation: fadeIn 0.3s ease-out forwards;
-        }
-        .animate-modalIn {
-          animation: modalIn 0.3s ease-out forwards;
-        }
-      `}</style>
     </div>
   );
 } 

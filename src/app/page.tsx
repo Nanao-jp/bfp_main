@@ -51,7 +51,7 @@ export default function Home() {
         {/* News & Topicsセクション */}
         <section id="news" className="container mx-auto px-4">
           <SectionTitle icon={SparklesIcon}>News & Topics</SectionTitle>
-          <div className="space-y-4 max-w-4xl mx-auto">
+          <div className="space-y-4 max-w-7xl mx-auto">
             {newsItems.map((news, i) => (
               <NewsCard 
                 key={i} 
