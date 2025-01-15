@@ -4,13 +4,15 @@ import { useState } from "react";
 import Link from "next/link";
 import { collaborationItems } from "../data/collaborations";
 import CollaborationCard from "./Collaboration/CollaborationCard";
+import GlobalModal from "./Collaboration/GlobalModal";
 import SectionTitle from "./SectionTitle";
 import { FilmIcon } from "@heroicons/react/24/solid";
+import { CollaborationItem } from "./Collaboration/types";
 
 const ITEMS_PER_PAGE = 6;
 
 export default function CollaborationsSection() {
-  const [visibleItems, setVisibleItems] = useState(ITEMS_PER_PAGE);
+  const [selectedItem, setSelectedItem] = useState<CollaborationItem | null>(null);
 
   return (
     <section className="py-16 bg-[var(--dark-surface)]">
@@ -18,10 +20,11 @@ export default function CollaborationsSection() {
         <SectionTitle icon={FilmIcon}>B.F.P. Collaborations</SectionTitle>
 
         <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {collaborationItems.slice(0, visibleItems).map((item, index) => (
+          {collaborationItems.slice(0, ITEMS_PER_PAGE).map((item, index) => (
             <CollaborationCard
               key={index}
               item={item}
+              onClick={() => setSelectedItem(item)}
             />
           ))}
         </div>
@@ -38,6 +41,13 @@ export default function CollaborationsSection() {
           </Link>
         </div>
       </div>
+
+      {selectedItem && (
+        <GlobalModal
+          item={selectedItem}
+          onClose={() => setSelectedItem(null)}
+        />
+      )}
     </section>
   );
 } 

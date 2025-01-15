@@ -60,5 +60,17 @@ export const collaborationItems: CollaborationItem[] = [
     image: "/images/MizuuminoOnnatachi.webp",
     description: "映画「湖の女たち」2024年5月17日公開",
     link: "https://mizuumi-movie.jp/"
+  },
+  { 
+    title: "ano feat. 幾田りら 「絶絶絶絶対聖域」",
+    image: "/images/ZettaiSeiiki.jpg",
+    description: "ano feat. 幾田りら 「絶絶絶絶対聖域」Music Video 2024年3月25日公開\n\nミリタリーアドバイザー(軍事所作指導)を実施したMVです。\nエンドロールに弊社名ビッグファイタープロジェクト、\nミリタリーアドバイザーとして越康弘\n弊社タレント予備女性自衛官の菊池璃央もアクションアシスタントとして参加\n即応予備自衛官、弊社役者の養田和裕もEX戦闘員の長として参加し名前が英語表記でエンドロールに掲載されています。",
+    link: "https://www.youtube.com/watch?v=TBm473lA5Bk"
+  },
+  {
+    title: "Huluオリジナル「君と世界が終わる日に」Season5",
+    image: "/images/KimitoSekaiga.jpg",
+    description: "Huluオリジナル「君と世界が終わる日に」Season5 2024年2月9日より公開中",
+    link: "https://www.ntv.co.jp/kimiseka/story/"
   }
 ]; 

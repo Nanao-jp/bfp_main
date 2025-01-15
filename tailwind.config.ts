@@ -22,9 +22,25 @@ export default {
           '0%': { transform: 'scale(1.0)' },
           '100%': { transform: 'scale(1.1)' },
         },
+        fadeIn: {
+          '0%': { opacity: '0' },
+          '100%': { opacity: '1' },
+        },
+        modalSlideIn: {
+          '0%': { 
+            opacity: '0',
+            transform: 'translateY(20px)'
+          },
+          '100%': {
+            opacity: '1',
+            transform: 'translateY(0)'
+          },
+        },
       },
       animation: {
         kenburns: 'kenburns 10s ease-out infinite alternate',
+        fadeIn: 'fadeIn 0.3s ease-out',
+        modalSlideIn: 'modalSlideIn 0.3s ease-out',
       },
       transitionProperty: {
         'height': 'height',
@@ -38,5 +54,7 @@ export default {
       },
     },
   },
-  plugins: [],
+  plugins: [
+    require('tailwind-scrollbar')({ nocompatible: true }),
+  ],
 } satisfies Config;
