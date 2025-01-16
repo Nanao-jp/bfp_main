@@ -32,6 +32,8 @@ export interface TalentDetails {
   licenses: string[];
   military?: MilitaryCareer;
   filmography: Filmography;
+  personality?: string[];
+  education?: string[];
 }
 
 export interface Talent {
