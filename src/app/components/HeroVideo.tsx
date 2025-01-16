@@ -22,7 +22,7 @@ export default function HeroVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // エラーハンドリング
-  const handleError = useCallback((error: Error) => {
+  const handleError = useCallback((error: unknown) => {
     console.error('Video error:', error);
     onError?.();
   }, [onError]);
