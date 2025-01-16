@@ -13,12 +13,6 @@ export const collaborationItems: CollaborationItem[] = [
     description: "永野芽郁主演の感動のヒューマンドラマ。現代の看護師が戦時中へタイムスリップ。困難な状況を強く生き抜こうとする前向きな物語。",
     link: "https://www.tv-tokyo.co.jp/haretara/"
   },
-  { 
-    title: "ゴジラ-1.0", 
-    image: "/images/gozira.webp",
-    description: "第96回アカデミー賞視覚効果賞ノミネート作品。第47回日本アカデミー賞 最優秀作品賞など多数受賞。",
-    link: "https://godzilla-movie2023.toho.co.jp/"
-  },
   {
     title: "龍が如く～Beyond the Game～",
     image: "/images/RyugaGotoku.webp",
@@ -72,5 +66,221 @@ export const collaborationItems: CollaborationItem[] = [
     image: "/images/KimitoSekaiga.jpg",
     description: "Huluオリジナル「君と世界が終わる日に」Season5 2024年2月9日より公開中",
     link: "https://www.ntv.co.jp/kimiseka/story/"
+  },
+  {
+    title: "風よ あらしよ",
+    image: "/images/KazeyoArashiyo.jpg",
+    description: "映画「風よ あらしよ」2月9日より公開中!",
+    link: "https://www.kazearashi.jp/"
+  },
+  {
+    title: "ウルトラマンブレーザー THE MOVIE 大怪獣首都激突",
+    image: "/images/UltraManBre.jpg",
+    description: "劇場版「ウルトラマンブレーザー THE MOVIE 大怪獣首都激突」2024年2月23日公開",
+    link: "https://m-78.jp/videoworks/ultraman-blazar-the-movie/"
+  },
+  {
+    title: "君と世界が終わる日に",
+    image: "/images/KimitoSekaiga1.jpg",
+    description: "劇場版「君と世界が終わる日に」2024年1月26日より公開!",
+    link: "https://kimiseka-final.jp/"
+  },
+  {
+    title: "ゴールデンカムイ",
+    image: "/images/GoldenKamui.jpg",
+    description: "映画「ゴールデンカムイ」2024年1月19日公開",
+    link: "https://kamuy-movie.com/"
+  },
+  {
+    title: "あの花が咲く丘で、君とまた出会えたら",
+    image: "/images/Anohanagasaku.jpg",
+    description: "映画「あの花が咲く丘で、君とまた出会えたら」 2023年12月8日公開予定\n\n第47回 日本アカデミー賞\n監督賞、主演男優賞、助演男優賞、助演女優賞\n編集賞、新人俳優省\n受賞作品",
+    link: "https://movies.shochiku.co.jp/ano-hana-movie/"
+  },
+  {
+    title: "モナーク:レガシー・オブ・モンスターズ",
+    image: "/images/mona-ku.jpg",
+    description: "ドラマシリーズ「モナーク:レガシー・オブ・モンスターズ」11月17日より動画配信サービス「Apple TV＋」で全世界で配信",
+    link: "https://theriver.jp/monarch-teaser/"
+  },
+  {
+    title: "家政夫のミタゾノseason6",
+    image: "/images/KaseihuMitazono6.jpg",
+    description: "テレビ朝日系ドラマ「家政夫のミタゾノseason6」第5話(レストラン回) 2023年11月7日配信",
+    link: "https://www.tv-asahi.co.jp/mitazono/"
+  },
+  { 
+    title: "ゴジラ-1.0", 
+    image: "/images/gozira.webp",
+    description: "第96回アカデミー賞視覚効果賞ノミネート作品。第47回日本アカデミー賞 最優秀作品賞など多数受賞。",
+    link: "https://godzilla-movie2023.toho.co.jp/"
+  },
+  {
+    title: "鯨の骨",
+    image: "/images/KuziraNoHone.jpg",
+    description: "映画「鯨の骨」2023年10月13日公開\nアクションサポート",
+    link: "https://www.culture-pub.jp/kujiranohone/"
+  },
+  {
+    title: "沈黙の艦隊",
+    image: "/images/ChinmokuNoKantai.jpg",
+    description: "映画「沈黙の艦隊」2023年9月29日公開",
+    link: "https://silent-service.jp/"
+  },
+  {
+    title: "アイドル",
+    image: "/images/IdolNHK.jpg",
+    description: "NHK「アイドル」再放送 9月22日(金) 20:15～21:44(89分版) BSプレミアム・BS4K同時放送",
+    link: "https://www.nhk.jp/p/ts/98L13QPNKX/"
+  },
+  {
+    title: "リボルバー・リリー",
+    image: "/images/RevolverLily.webp",
+    description: "映画「リボルバー・リリー」2023年8月11日公開",
+    link: "https://revolver-lily.com/"
+  },
+  {
+    title: "キングダム 運命の炎",
+    image: "/images/Kingdom.webp",
+    description: "映画「キングダム 運命の炎」2023年7月28日公開",
+    link: "https://kingdom-the-movie.jp/"
+  },
+  {
+    title: "FENCE",
+    image: "/images/FENCE.webp",
+    description: "WOWOW 連続ドラマ「フェンス」2023年3月19日OA",
+    link: "https://www.wowow.co.jp/drama/original/fence/"
+  },
+  {
+    title: "シン・仮面ライダー",
+    image: "/images/ShinKamenRider.jpg",
+    description: "映画「シン・仮面ライダー」2023年3月17日公開",
+    link: "https://www.shin-kamen-rider.jp/"
+  },
+  {
+    title: "わたしの幸せな結婚",
+    image: "/images/Watakon.jpg",
+    description: "映画「わたしの幸せな結婚」2023年3月17日公開",
+    link: "https://watakon-movie.jp/"
+  },
+  {
+    title: "七人のおたく THE STAGE",
+    image: "/images/ShichininNoOtaku.webp",
+    description: "舞台「七人のおたく THE STAGE」\n2022年3月4日〜東京・紀伊國屋サザンシアター、3月18日〜大阪・サンケイホールブリーゼにて上演",
+    link: "https://www.mmj-pro.co.jp/cult-seven/"
+  },
+  {
+    title: "ウルトラマンデッカー 最終章 旅立ちの彼方へ…",
+    image: "/images/decker-final-title.webp",
+    description: "映画「ウルトラマンデッカー 最終章 旅立ちの彼方へ・・・」2023年2月23日公開\nTSUBURAYA IMAGINATIONで独占配信!全国劇場にて同時公開!",
+    link: "https://m-78.jp/decker/"
+  },
+  {
+    title: "THE LEGEND & BUTTERFLY",
+    image: "/images/LEGENDBUTTERFLY.jpg",
+    description: "映画「THE LEGEND & BUTTERFLY」2023年1月27日公開",
+    link: "https://legend-butterfly.com/"
+  },
+  {
+    title: "イチケイのカラス",
+    image: "/images/IchikeiNoKarasu.jpg",
+    description: "映画「イチケイのカラス」2023年1月13日公開",
+    link: "https://www.fujitv.co.jp/ichikei/"
+  },
+  {
+    title: "闇金ウシジマくん外伝 闇金サイハラさん",
+    image: "/images/YamikinSaihara.jpg",
+    description: "MBS/TBSドラマ「闇金ウシジマくん外伝 闇金サイハラさん」第13話に監修・協力",
+    link: "https://rhino-loan.com/index.html"
+  },
+  {
+    title: "a20153の青春",
+    image: "/images/a20153.webp",
+    description: "弊社制作作品・各賞受賞!ぜひご覧ください!\n第1回宮古島国際映画祭 長編映画部門最優秀脚本賞受賞",
+    link: "https://joji.uplink.co.jp/movie/2022/14941"
+  },
+  {
+    title: "未来へつむぐ",
+    image: "/images/MiraiheTumugu.png",
+    description: "舞台「未来へつむぐ」 2022年11月25日～27日",
+    link: "https://tsumugi-japan.stage.corich.jp/stage/293698"
+  },
+  {
+    title: "仮面ライダーBLACK SUN",
+    image: "/images/KamenRiderBLACK.jpg",
+    description: "Prime Video「仮面ライダーBLACK SUN」 2022年10月28日OA配信開始予定",
+    link: "https://www.kamen-rider-official.com/blacksun/"
+  },
+  {
+    title: "アルキメデスの大戦",
+    image: "/images/ArukimedesuNoTaisen.jpg",
+    description: "舞台「アルキメデスの大戦」 2022年10月1日～17日",
+    link: "https://www.tohostage.com/archimedes/"
+  },
+  {
+    title: "KINGDOM Ⅱ",
+    image: "/images/Kingdom2.jpg",
+    description: "映画「KINGDOM Ⅱ」 2022年7月15日公開",
+    link: "https://kingdom-the-movie.jp/series2/"
+  },
+  {
+    title: "テッパチ！",
+    image: "/images/Teppachi.jpg",
+    description: "フジテレビ系 連続ドラマ「テッパチ！」\n2022年7月6日(水) よる10時よりスタート!",
+    link: "https://www.fujitv.co.jp/teppachi/"
+  },
+  {
+    title: "白い服の男",
+    image: "/images/ShiroiHukunoOtoko.jpg",
+    description: "NHK 星新一の不思議な不思議な短編ドラマ「白い服の男」\n弊社軍事監修&軍事指導\n2022年6月7日OA　[放送時間]21:45～22:00\n※NHK BSプレミアム・BS4Kにて同時放送※\n\n☆2024年9月9日 再放送☆",
+    link: "https://www.nhk.jp/p/ts/MKP974JQRN/episode/te/V75M9M8YKN/"
+  },
+  {
+    title: "鋼の錬金術師",
+    image: "/images/Hagaren.jpg",
+    description: "映画「鋼の錬金術師 完結編」復習者スカー/最後の連星　\n2022年5月20日/6月24日 公開",
+    link: "https://wwws.warnerbros.co.jp//hagarenmovie/index.html"
+  },
+  {
+    title: "シン・ウルトラマン",
+    image: "/images/ShinUltraMan.jpg",
+    description: "映画「シン・ウルトラマン」 2022年5月13日公開",
+    link: "https://shin-ultraman.jp/"
+  },
+  {
+    title: "あなたに聴かせたい歌があるんだ",
+    image: "/images/AnataniKikasetai.jpg",
+    description: "Hulu ネットドラマ全8話「あなたに聴かせたい歌があるんだ」 2022年5月20日OA",
+    link: "https://www.hulu.jp/static/anatanikikasetai/"
+  },
+  {
+    title: "ラジエーションハウス",
+    image: "/images/RadiationHouse.jpg",
+    description: "映画「劇場版ラジエーションハウス」 2022年4月29日公開",
+    link: "https://eiga.com/movie/96273/"
+  },
+  {
+    title: "風よあらしよ",
+    image: "/images/KazeyoArashiyoDorama.jpg",
+    description: "NHKドラマ「風よあらしよ」2022年3月31日OA",
+    link: "https://www.nhk.jp/p/ts/46GRNGJ8Y6/"
+  },
+  {
+    title: "君と世界が終わる日に",
+    image: "/images/KimitoSekaigaSeason1.jpg",
+    description: "NTV金曜ロードショー 「君と世界が終わる日に」(2021年1月～3月NTV seazon1担当)",
+    link: "https://www.ntv.co.jp/kimiseka/"
+  },
+  {
+    title: "大怪獣のあとしまつ",
+    image: "/images/DaikaijuNoAtoshimatu.jpg",
+    description: "映画「大怪獣のあとしまつ」2022年2月4日公開\n※夕刊フジでインタビュー記事が掲載されました※",
+    link: "https://eiga.com/movie/92765/"
+  },
+  {
+    title: "コンフィデンスマンJP英雄編",
+    image: "/images/confidencemanJP.jpg",
+    description: "映画「コンフィデンスマンJP英雄編」2022年1月14日公開",
+    link: "https://confidenceman-movie.com/"
   }
 ]; 
