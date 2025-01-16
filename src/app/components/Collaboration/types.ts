@@ -7,6 +7,8 @@ export interface CollaborationItem {
 
 export interface CollaborationCardProps {
   item: CollaborationItem;
+  onClick?: () => void;
+  className?: string;
 }
 
 export interface CollaborationCardContentProps extends CollaborationCardProps {
