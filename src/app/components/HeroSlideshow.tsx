@@ -3,11 +3,11 @@
 import { useState, useEffect } from "react";
 import Image from "next/image";
 
-type HeroSlideshowProps = {
-  slides: string[];
+interface HeroSlideshowProps {
+  slides: readonly string[];
   duration?: number;
   transitionDuration?: number;
-};
+}
 
 export default function HeroSlideshow({ 
   slides, 
