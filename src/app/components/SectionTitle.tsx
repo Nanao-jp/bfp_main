@@ -1,5 +1,5 @@
 interface SectionTitleProps {
-  icon: any;
+  icon: React.ComponentType<React.SVGProps<SVGSVGElement>>;
   children: React.ReactNode;
 }
 

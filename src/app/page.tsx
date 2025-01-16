@@ -1,5 +1,4 @@
 import Image from "next/image";
-import Link from "next/link";
 import { SparklesIcon, VideoCameraIcon, GlobeAltIcon } from "@heroicons/react/24/solid";
 import NewsCard, { NewsItem } from "./components/NewsCard";
 import HeroBackground from "./components/HeroBackground";
