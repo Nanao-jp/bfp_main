@@ -1,15 +1,17 @@
 import { VideoCameraIcon } from "@heroicons/react/24/solid";
 import SectionTitle from "../../SectionTitle";
 import YouTubeEmbed from "../../ui/YouTubeEmbed";
+import Container from "../../ui/Container";
 import { youtubeVideos } from "../../../data/youtubeItems";
+import { styles } from "../../../styles/constants";
 
 export default function YouTubeSection() {
   const mainVideo = youtubeVideos.find(video => video.isMain);
   const subVideos = youtubeVideos.filter(video => !video.isMain);
 
   return (
-    <section className="bg-[var(--dark-surface)] py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-dark-surface py-16">
+      <Container>
         <SectionTitle icon={VideoCameraIcon}>YouTube</SectionTitle>
         
         {/* メイン動画 */}
@@ -23,7 +25,7 @@ export default function YouTubeSection() {
               />
             </div>
             <div className="w-[60%] ml-4 mt-4">
-              <h3 className="text-xl font-bold text-[var(--accent-lime)]">{mainVideo.title}</h3>
+              <h3 className="text-xl font-bold text-accent-lime">{mainVideo.title}</h3>
               <p className="text-sm text-gray-400">{mainVideo.description}</p>
             </div>
           </div>
@@ -38,13 +40,13 @@ export default function YouTubeSection() {
                 title={video.title}
               />
               <div>
-                <h3 className="text-lg font-bold text-[var(--accent-lime)]">{video.title}</h3>
+                <h3 className="text-lg font-bold text-accent-lime">{video.title}</h3>
                 <p className="text-sm text-gray-400">{video.description}</p>
               </div>
             </div>
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 
