@@ -3,6 +3,7 @@
 import { useEffect, useCallback, useRef } from 'react';
 import Image from "next/image";
 import { CollaborationModalProps } from "./types";
+import { styles } from "../../styles/constants";
 
 export default function GlobalModal({ item, onClose }: CollaborationModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
@@ -14,13 +15,8 @@ export default function GlobalModal({ item, onClose }: CollaborationModalProps) 
   }, [onClose]);
 
   useEffect(() => {
-    // キーボードイベントの追加
     document.addEventListener('keydown', handleKeyDown);
-    
-    // フォーカスをモーダルに移動
     modalRef.current?.focus();
-    
-    // クリーンアップ関数
     return () => {
       document.removeEventListener('keydown', handleKeyDown);
     };
@@ -40,11 +36,11 @@ export default function GlobalModal({ item, onClose }: CollaborationModalProps) 
     >
       <div 
         ref={modalRef}
-        className="relative w-full max-w-4xl max-h-[90vh] bg-[#1E1E1E] rounded-xl overflow-hidden animate-modalIn focus:outline-none flex flex-col"
+        className="relative w-full max-w-4xl h-[80vh] bg-dark-surface-2 rounded-xl overflow-hidden animate-modalIn focus:outline-none flex flex-col"
         onClick={handleContentClick}
         tabIndex={-1}
       >
-        <div className="relative aspect-video shrink-0">
+        <div className="relative h-[60%] shrink-0">
           <Image
             src={item.image}
             alt={item.title}
@@ -53,17 +49,17 @@ export default function GlobalModal({ item, onClose }: CollaborationModalProps) 
             className="object-cover"
             priority
           />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent" />
         </div>
         <div className="flex-1 min-h-0 overflow-y-auto">
-          <div className="p-6 space-y-4">
-            <div className="flex justify-between items-start">
-              <h2 id="modal-title" className="text-2xl font-bold text-white">{item.title}</h2>
-              {item.link && (
+          <div className="p-6 space-y-6">
+            {item.link && (
+              <div className="flex justify-end">
                 <a
                   href={item.link}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center text-sm text-[var(--accent-lime)] hover:underline"
+                  className="flex items-center text-sm text-accent-lime hover:underline"
                   aria-label={`${item.title}の公式サイトへ`}
                 >
                   <span>公式サイトへ</span>
@@ -71,11 +67,14 @@ export default function GlobalModal({ item, onClose }: CollaborationModalProps) 
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                   </svg>
                 </a>
+              </div>
+            )}
+            <div className="space-y-4">
+              <h2 id="modal-title" className="text-2xl font-bold text-white">{item.title}</h2>
+              {item.description && (
+                <p className="text-white/80 text-lg leading-relaxed whitespace-pre-line">{item.description}</p>
               )}
             </div>
-            {item.description && (
-              <p className="text-white/80 text-lg leading-relaxed whitespace-pre-line">{item.description}</p>
-            )}
           </div>
         </div>
         <button

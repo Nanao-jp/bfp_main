@@ -8,6 +8,8 @@ import GlobalModal from "./Collaboration/GlobalModal";
 import SectionTitle from "./SectionTitle";
 import { FilmIcon } from "@heroicons/react/24/solid";
 import { CollaborationItem } from "./Collaboration/types";
+import Container from "./ui/Container";
+import { styles } from "../styles/constants";
 
 const ITEMS_PER_PAGE = 6;
 
@@ -15,11 +17,11 @@ export default function CollaborationsSection() {
   const [selectedItem, setSelectedItem] = useState<CollaborationItem | null>(null);
 
   return (
-    <section className="py-16 bg-[var(--dark-surface)]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <section className={`${styles.layout.section.default} bg-dark-surface`}>
+      <Container>
         <SectionTitle icon={FilmIcon}>B.F.P. Collaborations</SectionTitle>
 
-        <div className="mt-12 grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-12 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
           {collaborationItems.slice(0, ITEMS_PER_PAGE).map((item, index) => (
             <CollaborationCard
               key={index}
@@ -29,10 +31,10 @@ export default function CollaborationsSection() {
           ))}
         </div>
 
-        <div className="mt-12 text-center">
+        <div className="mt-16 text-center">
           <Link
             href="/works"
-            className="group inline-flex items-center px-6 py-3 border-2 border-[var(--accent-lime)] text-base font-medium rounded-md text-black bg-[var(--accent-lime)] hover:bg-[var(--accent-lime-dark)] hover:border-[var(--accent-lime-dark)] transition-all duration-300"
+            className="group inline-flex items-center px-6 py-3 border-2 border-accent-lime text-base font-medium rounded-md text-black bg-accent-lime hover:bg-accent-lime-dark hover:border-accent-lime-dark transition-all duration-300"
           >
             もっと見る
             <svg className="ml-2 w-5 h-5 transform group-hover:translate-x-1 transition-transform duration-300" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -40,7 +42,7 @@ export default function CollaborationsSection() {
             </svg>
           </Link>
         </div>
-      </div>
+      </Container>
 
       {selectedItem && (
         <GlobalModal
