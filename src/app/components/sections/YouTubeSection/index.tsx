@@ -31,7 +31,7 @@ export default function YouTubeSection() {
 
         {/* サブ動画グリッド */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {subVideos.map((video, index) => (
+          {subVideos.map((video) => (
             <div key={video.id} className="space-y-3">
               <YouTubeEmbed
                 videoId={video.id}
