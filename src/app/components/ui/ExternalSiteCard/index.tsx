@@ -1,6 +1,5 @@
 import Image from "next/image";
 import { ExternalSite } from "../../../data/externalSites";
-import { styles } from "../../../styles/constants";
 
 interface ExternalSiteCardProps {
   site: ExternalSite;
@@ -9,7 +8,7 @@ interface ExternalSiteCardProps {
 export default function ExternalSiteCard({ site }: ExternalSiteCardProps) {
   return (
     <a href={site.href} className="block group">
-      <div className={styles.card.wrapper}>
+      <div className="bg-dark-surface-2 rounded-xl overflow-hidden hover:bg-dark-surface-3 transition-all duration-300">
         <div className="flex flex-col md:flex-row">
           <div className="relative md:w-[600px] aspect-[3.36/1]">
             <Image
@@ -22,7 +21,7 @@ export default function ExternalSiteCard({ site }: ExternalSiteCardProps) {
           <div className="flex-1 p-6 flex items-center">
             <div className="flex justify-between items-center w-full">
               <div>
-                <h3 className={styles.card.title}>
+                <h3 className="text-2xl font-bold text-white group-hover:text-accent-lime transition-colors duration-300">
                   {site.title}
                 </h3>
               </div>
