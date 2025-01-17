@@ -3,7 +3,6 @@ import SectionTitle from "../../SectionTitle";
 import YouTubeEmbed from "../../ui/YouTubeEmbed";
 import Container from "../../ui/Container";
 import { youtubeVideos } from "../../../data/youtubeItems";
-import { styles } from "../../../styles/constants";
 
 export default function YouTubeSection() {
   const mainVideo = youtubeVideos.find(video => video.isMain);
