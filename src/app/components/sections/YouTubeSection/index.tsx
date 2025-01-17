@@ -3,19 +3,20 @@ import SectionTitle from "../../SectionTitle";
 import YouTubeEmbed from "../../ui/YouTubeEmbed";
 import Container from "../../ui/Container";
 import { youtubeVideos } from "../../../data/youtubeItems";
+import { styles } from "../../../styles/constants";
 
 export default function YouTubeSection() {
   const mainVideo = youtubeVideos.find(video => video.isMain);
   const subVideos = youtubeVideos.filter(video => !video.isMain);
 
   return (
-    <section className="bg-dark-surface py-16">
+    <section className={`bg-dark-surface ${styles.layout.section.default}`}>
       <Container>
         <SectionTitle icon={VideoCameraIcon}>YouTube</SectionTitle>
         
         {/* メイン動画 */}
         {mainVideo && (
-          <div className="mb-8">
+          <div className={styles.layout.section.spacing}>
             <div className="w-[60%] ml-4">
               <YouTubeEmbed
                 videoId={mainVideo.id}
@@ -31,15 +32,15 @@ export default function YouTubeSection() {
         )}
 
         {/* サブ動画グリッド */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 items-start">
           {subVideos.map((video) => (
-            <div key={video.id} className="space-y-3">
+            <div key={video.id} className="h-full">
               <YouTubeEmbed
                 videoId={video.id}
                 title={video.title}
               />
-              <div>
-                <h3 className="text-lg font-bold text-accent-lime">{video.title}</h3>
+              <div className="mt-3">
+                <h3 className="text-lg font-bold text-accent-lime line-clamp-2">{video.title}</h3>
                 <p className="text-sm text-gray-400">{video.description}</p>
               </div>
             </div>
