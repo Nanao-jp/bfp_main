@@ -2,12 +2,11 @@
 
 import Image from "next/image";
 import { CollaborationCardProps } from "./types";
-import { styles } from "../../styles/constants";
 
 export default function CollaborationCard({ item, onClick, className = "" }: CollaborationCardProps) {
   return (
     <div className={`group cursor-pointer h-full ${className}`} onClick={onClick}>
-      <div className={`${styles.card.base} rounded-xl bg-dark-surface-2 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden`}>
+      <div className="rounded-xl bg-dark-surface-2 hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 h-full flex flex-col overflow-hidden">
         <div className="relative aspect-video shrink-0 overflow-hidden">
           <Image
             src={item.image}
