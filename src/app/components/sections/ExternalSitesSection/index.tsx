@@ -1,19 +1,21 @@
 import { GlobeAltIcon } from "@heroicons/react/24/solid";
 import SectionTitle from "../../SectionTitle";
 import ExternalSiteCard from "../../ui/ExternalSiteCard";
+import Container from "../../ui/Container";
 import { externalSites } from "../../../data/externalSites";
+import { styles } from "../../../styles/constants";
 
 export default function ExternalSitesSection() {
   return (
-    <section className="bg-[#1E1E1E] py-16">
-      <div className="container mx-auto px-4">
+    <section className="bg-surface py-16">
+      <Container>
         <SectionTitle icon={GlobeAltIcon}>External Sites</SectionTitle>
-        <div className="space-y-6">
+        <div className={styles.layout.section.spacing}>
           {externalSites.map((site) => (
             <ExternalSiteCard key={site.title} site={site} />
           ))}
         </div>
-      </div>
+      </Container>
     </section>
   );
 } 

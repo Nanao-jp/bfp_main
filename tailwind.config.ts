@@ -1,6 +1,6 @@
 import type { Config } from "tailwindcss";
 
-export default {
+const config: Config = {
   content: [
     "./src/pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./src/components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -11,6 +11,18 @@ export default {
       colors: {
         background: "var(--background)",
         foreground: "var(--foreground)",
+        surface: {
+          DEFAULT: '#1E1E1E',
+          dark: '#2D2D2D',
+          darker: '#353535',
+        },
+        accent: {
+          lime: 'var(--accent-lime)',
+        }
+      },
+      backgroundColor: {
+        'dark-surface': 'var(--dark-surface)',
+        'dark-surface-2': 'var(--dark-surface-2)',
       },
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
@@ -58,3 +70,5 @@ export default {
     require('tailwind-scrollbar')({ nocompatible: true }),
   ],
 } satisfies Config;
+
+export default config;
