@@ -3,7 +3,6 @@
 import { useEffect, useCallback, useRef } from 'react';
 import Image from "next/image";
 import { CollaborationModalProps } from "./types";
-import { styles } from "../../styles/constants";
 
 export default function GlobalModal({ item, onClose }: CollaborationModalProps) {
   const modalRef = useRef<HTMLDivElement>(null);
