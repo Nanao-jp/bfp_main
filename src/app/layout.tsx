@@ -11,6 +11,29 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Big Fighter Project",
   description: "芸能プロダクション ビッグファイタープロジェクト",
+  icons: {
+    icon: "/favicon.ico",
+  },
+  openGraph: {
+    title: "Big Fighter Project",
+    description: "芸能プロダクション ビッグファイタープロジェクト",
+    images: [
+      {
+        url: "/OGP.webp",
+        width: 1200,
+        height: 630,
+        alt: "Big Fighter Project",
+      },
+    ],
+    locale: "ja_JP",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Big Fighter Project",
+    description: "芸能プロダクション ビッグファイタープロジェクト",
+    images: ["/OGP.webp"],
+  },
 };
 
 export default function RootLayout({
