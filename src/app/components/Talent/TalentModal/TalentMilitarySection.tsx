@@ -1,4 +1,5 @@
 import { Talent } from '@/app/types/talent';
+import SectionTitle from '@/app/components/ui/SectionTitle';
 
 interface TalentMilitarySectionProps {
   talent: Talent;
@@ -9,7 +10,7 @@ export default function TalentMilitarySection({ talent }: TalentMilitarySectionP
 
   return (
     <div className="mt-8">
-      <h3 className="text-xl font-bold text-accent-lime mb-4">自衛隊経歴</h3>
+      <SectionTitle variant="accent">自衛隊経歴</SectionTitle>
       <div className="space-y-4">
         <div>
           <p className="text-gray-400">在籍期間</p>

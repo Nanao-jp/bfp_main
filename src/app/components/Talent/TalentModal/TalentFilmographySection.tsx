@@ -1,4 +1,5 @@
 import { Talent } from '@/app/types/talent';
+import SectionTitle from '@/app/components/ui/SectionTitle';
 
 interface TalentFilmographySectionProps {
   talent: Talent;
@@ -12,7 +13,7 @@ export default function TalentFilmographySection({ talent }: TalentFilmographySe
 
   return (
     <div className="mt-8">
-      <h3 className="text-xl font-bold text-accent-lime mb-4">出演作品</h3>
+      <SectionTitle variant="accent">出演作品</SectionTitle>
       <div className="space-y-6">
         {filmography.movies && filmography.movies.length > 0 && (
           <div>
@@ -34,11 +35,31 @@ export default function TalentFilmographySection({ talent }: TalentFilmographySe
             </ul>
           </div>
         )}
+        {filmography.web && filmography.web.length > 0 && (
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">Web</h4>
+            <ul className="list-disc list-inside space-y-1">
+              {filmography.web.map((item, index) => (
+                <li key={index} className="text-white">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
         {filmography.stage && filmography.stage.length > 0 && (
           <div>
             <h4 className="text-lg font-semibold text-white mb-2">舞台</h4>
             <ul className="list-disc list-inside space-y-1">
               {filmography.stage.map((item, index) => (
+                <li key={index} className="text-white">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {filmography.cm && filmography.cm.length > 0 && (
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">CM</h4>
+            <ul className="list-disc list-inside space-y-1">
+              {filmography.cm.map((item, index) => (
                 <li key={index} className="text-white">{item}</li>
               ))}
             </ul>
@@ -79,6 +100,26 @@ export default function TalentFilmographySection({ talent }: TalentFilmographySe
             <h4 className="text-lg font-semibold text-white mb-2">声優/ゲーム</h4>
             <ul className="list-disc list-inside space-y-1">
               {filmography.voiceAndGames.map((item, index) => (
+                <li key={index} className="text-white">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {filmography.internet && filmography.internet.length > 0 && (
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">インターネット</h4>
+            <ul className="list-disc list-inside space-y-1">
+              {filmography.internet.map((item, index) => (
+                <li key={index} className="text-white">{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+        {filmography.others && filmography.others.length > 0 && (
+          <div>
+            <h4 className="text-lg font-semibold text-white mb-2">その他</h4>
+            <ul className="list-disc list-inside space-y-1">
+              {filmography.others.map((item, index) => (
                 <li key={index} className="text-white">{item}</li>
               ))}
             </ul>
