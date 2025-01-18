@@ -1,8 +1,7 @@
 import type { Metadata } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Link from "next/link";
-import Logo from "./components/Logo";
+import Header from "./components/Header";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
@@ -22,39 +21,7 @@ export default function RootLayout({
   return (
     <html lang="ja">
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
-        <header className="bg-[var(--dark-surface-2)] text-white border-b border-[#2D2D2D]">
-          <div className="container mx-auto px-4 py-6">
-            <nav className="flex justify-between items-center">
-              <Logo />
-              <ul className="flex space-x-8">
-                <li>
-                  <Link href="/" className="relative group h-8 flex items-center">
-                    <span>HOME</span>
-                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/talents" className="relative group h-8 flex items-center">
-                    <span>TALENTS</span>
-                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/works" className="relative group h-8 flex items-center">
-                    <span>WORKS</span>
-                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/contact" className="relative group h-8 flex items-center">
-                    <span>CONTACT</span>
-                    <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
-                  </Link>
-                </li>
-              </ul>
-            </nav>
-          </div>
-        </header>
+        <Header />
         <main>
           {children}
         </main>
