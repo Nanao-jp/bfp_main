@@ -10,7 +10,7 @@ const outfit = Outfit({
 
 export const metadata: Metadata = {
   title: "Big Fighter Project",
-  description: "Big Fighter Project 公式ウェブサイト",
+  description: "芸能プロダクション ビッグファイタープロジェクト",
 };
 
 export default function RootLayout({
