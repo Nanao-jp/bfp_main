@@ -16,14 +16,14 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
         }
       }}
     >
-      <div className="bg-[#1E1E1E] rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto
-        scrollbar-thin scrollbar-track-[#2D2D2D] scrollbar-thumb-[var(--accent-lime)] 
-        scrollbar-thumb-rounded hover:scrollbar-thumb-[var(--accent-lime-dark)]
+      <div className="bg-dark-surface-2 rounded-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto
+        scrollbar-thin scrollbar-track-dark-surface-3 scrollbar-thumb-accent-lime 
+        scrollbar-thumb-rounded hover:scrollbar-thumb-accent-lime-dark
         animate-modalSlideIn relative"
       >
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 bg-[#2D2D2D] text-white p-2 rounded-full hover:bg-[var(--accent-lime)] hover:text-black transition-all duration-300 z-10"
+          className="absolute top-4 right-4 bg-dark-surface-3 text-white p-2 rounded-full hover:bg-accent-lime hover:text-black transition-all duration-300 z-10"
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
@@ -36,6 +36,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
             alt={talent.name}
             fill
             className="object-cover"
+            priority
           />
         </div>
         <div className="p-8">
@@ -47,7 +48,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                   href={talent.social.twitter}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                  className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z" />
@@ -59,7 +60,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                   href={talent.social.facebook}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                  className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M9.101 23.691v-7.98H6.627v-3.667h2.474v-1.58c0-4.085 1.848-5.978 5.858-5.978.401 0 .955.042 1.468.103a8.68 8.68 0 0 1 1.141.195v3.325a8.623 8.623 0 0 0-.653-.036 26.805 26.805 0 0 0-.733-.009c-.707 0-1.259.096-1.675.309a1.686 1.686 0 0 0-.679.622c-.258.42-.374.995-.374 1.752v1.297h3.919l-.386 2.103-.287 1.564h-3.246v8.245C19.396 23.238 24 18.179 24 12.044c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.628 3.874 10.35 9.101 11.647Z" />
@@ -71,7 +72,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                   href={talent.social.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                  className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
                     <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zM4 12c0-.61.08-1.21.21-1.78L8.99 15v1c0 1.1.9 2 2 2v1.93C7.06 19.43 4 16.07 4 12zm13.89 5.4c-.26-.81-1-1.39-1.9-1.39h-1v-3c0-.55-.45-1-1-1h-6v-2h2c.55 0 1-.45 1-1V7h2c1.1 0 2-.9 2-2v-.41C17.92 5.77 20 8.65 20 12c0 2.08-.81 3.98-2.11 5.4z" />
@@ -82,7 +83,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                 <a
                   href={talent.pdf}
                   download
-                  className="flex items-center gap-2 bg-[#2D2D2D] px-4 py-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300 text-sm font-medium"
+                  className="flex items-center gap-2 bg-dark-surface-3 px-4 py-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300 text-sm font-medium"
                   onClick={(e) => e.stopPropagation()}
                 >
                   <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -98,15 +99,15 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
             <div>
               <h3 className="text-xl font-bold text-white mb-4">プロフィール</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                <div className="bg-[#2D2D2D] p-4 rounded-lg">
+                <div className="bg-dark-surface-3 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <p className="text-gray-400">生年月日</p>
                   <p className="text-white">{talent.details.profile.birthday}</p>
                 </div>
-                <div className="bg-[#2D2D2D] p-4 rounded-lg">
+                <div className="bg-dark-surface-3 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <p className="text-gray-400">出身地</p>
                   <p className="text-white">{talent.details.profile.birthplace}</p>
                 </div>
-                <div className="bg-[#2D2D2D] p-4 rounded-lg">
+                <div className="bg-dark-surface-3 p-4 rounded-lg shadow-lg hover:shadow-xl transition-shadow duration-300">
                   <p className="text-gray-400">身長</p>
                   <p className="text-white">{talent.details.profile.height}</p>
                 </div>
@@ -118,7 +119,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                 <h3 className="text-xl font-bold text-white mb-4">特技</h3>
                 <div className="flex flex-wrap gap-2">
                   {talent.details.skills.map((skill, index) => (
-                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white">
+                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white cursor-default">
                       {skill}
                     </span>
                   ))}
@@ -131,7 +132,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                 <h3 className="text-xl font-bold text-white mb-4">趣味</h3>
                 <div className="flex flex-wrap gap-2">
                   {talent.details.hobbies.map((hobby, index) => (
-                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white">
+                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white cursor-default">
                       {hobby}
                     </span>
                   ))}
@@ -144,7 +145,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                 <h3 className="text-xl font-bold text-white mb-4">資格</h3>
                 <div className="flex flex-wrap gap-2">
                   {talent.details.licenses.map((license, index) => (
-                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white">
+                    <span key={index} className="bg-[#2D2D2D] px-3 py-1 rounded-full text-white cursor-default">
                       {license}
                     </span>
                   ))}
@@ -154,7 +155,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
 
             {talent.details.military && (
               <div>
-                <h3 className="text-xl font-bold text-[var(--accent-lime)] mb-4">自衛隊経歴</h3>
+                <h3 className="text-xl font-bold text-accent-lime mb-4">自衛隊経歴</h3>
                 <div className="space-y-4">
                   <div>
                     <p className="text-gray-400">在籍期間</p>
@@ -181,7 +182,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
             )}
 
             <div>
-              <h3 className="text-xl font-bold text-[var(--accent-lime)] mb-4">出演作品</h3>
+              <h3 className="text-xl font-bold text-accent-lime mb-4">出演作品</h3>
               <div className="space-y-6">
                 {talent.details.filmography.movies && talent.details.filmography.movies.length > 0 && (
                   <div>
@@ -273,22 +274,22 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
                     </ul>
                   </div>
                 )}
-                {talent.details.filmography.others && talent.details.filmography.others.length > 0 && (
-                  <div>
-                    <h4 className="text-lg font-semibold text-white mb-2">その他</h4>
-                    <ul className="list-disc list-inside space-y-1">
-                      {talent.details.filmography.others.map((item, index) => (
-                        <li key={index} className="text-white">{item}</li>
-                      ))}
-                    </ul>
-                  </div>
-                )}
                 {talent.details.filmography.web && talent.details.filmography.web.length > 0 && (
                   <div>
                     <h4 className="text-lg font-semibold text-white mb-2">WEB</h4>
                     <ul className="list-disc list-inside space-y-1">
                       {talent.details.filmography.web.map((web, index) => (
                         <li key={index} className="text-white">{web}</li>
+                      ))}
+                    </ul>
+                  </div>
+                )}
+                {talent.details.filmography.others && talent.details.filmography.others.length > 0 && (
+                  <div>
+                    <h4 className="text-lg font-semibold text-white mb-2">その他</h4>
+                    <ul className="list-disc list-inside space-y-1">
+                      {talent.details.filmography.others.map((item, index) => (
+                        <li key={index} className="text-white">{item}</li>
                       ))}
                     </ul>
                   </div>

@@ -9,7 +9,7 @@ interface TalentCardProps {
 export default function TalentCard({ talent, onClick }: TalentCardProps) {
   return (
     <div
-      className="bg-[#1E1E1E] rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
+      className="bg-dark-surface-2 rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transform hover:-translate-y-1 transition-all duration-300 cursor-pointer group"
       onClick={onClick}
     >
       <div className="relative aspect-square w-full">
@@ -22,14 +22,14 @@ export default function TalentCard({ talent, onClick }: TalentCardProps) {
       </div>
       <div className="p-6">
         <div className="flex justify-between items-center mb-2">
-          <h2 className="text-xl font-bold text-white group-hover:text-[var(--accent-lime)] transition-colors">{talent.name}</h2>
+          <h2 className="text-xl font-bold text-white group-hover:text-accent-lime transition-colors">{talent.name}</h2>
           <div className="flex gap-2">
             {talent.social.twitter && (
               <a
                 href={talent.social.twitter}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 onClick={(e) => e.stopPropagation()}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -42,7 +42,7 @@ export default function TalentCard({ talent, onClick }: TalentCardProps) {
                 href={talent.social.facebook}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 onClick={(e) => e.stopPropagation()}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
@@ -55,7 +55,7 @@ export default function TalentCard({ talent, onClick }: TalentCardProps) {
                 href={talent.social.website}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="bg-[#2D2D2D] p-2 rounded-full hover:bg-[var(--accent-lime)] text-gray-400 hover:text-black transition-all duration-300"
+                className="bg-dark-surface-3 p-2 rounded-full hover:bg-accent-lime text-gray-400 hover:text-black transition-all duration-300"
                 onClick={(e) => e.stopPropagation()}
               >
                 <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
