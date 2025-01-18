@@ -11,6 +11,21 @@ const outfit = Outfit({
 export const metadata: Metadata = {
   title: "Big Fighter Project",
   description: "芸能プロダクション ビッグファイタープロジェクト",
+  keywords: ["芸能プロダクション", "ビッグファイタープロジェクト", "BFP", "タレント", "格闘技", "エンターテインメント"],
+  themeColor: "#1E1E1E",
+  viewport: {
+    width: "device-width",
+    initialScale: 1,
+    maximumScale: 1,
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+    },
+  },
   icons: {
     icon: "/favicon.ico",
   },
@@ -27,6 +42,7 @@ export const metadata: Metadata = {
     ],
     locale: "ja_JP",
     type: "website",
+    siteName: "Big Fighter Project",
   },
   twitter: {
     card: "summary_large_image",
