@@ -16,15 +16,15 @@ export default function YouTubeSection() {
         
         {/* メイン動画 */}
         {mainVideo && (
-          <div className={styles.layout.section.spacing}>
-            <div className="w-[60%] ml-4">
+          <div className={`${styles.layout.section.spacing} mb-16`}>
+            <div className="w-full lg:w-[60%] lg:ml-4">
               <YouTubeEmbed
                 videoId={mainVideo.id}
                 title={mainVideo.title}
                 isMain
               />
             </div>
-            <div className="w-[60%] ml-4 mt-4">
+            <div className="w-full lg:w-[60%] lg:ml-4 mt-4">
               <h3 className="text-xl font-bold text-accent-lime">{mainVideo.title}</h3>
               <p className="text-sm text-gray-400">{mainVideo.description}</p>
             </div>
