@@ -2,6 +2,12 @@ import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
   { 
+    title: "119エマージェンシーコール",
+    image: "/images/119.jpg",
+    description: "『119エマージェンシーコール』（いちいちきゅーエマージェンシーコール）2025年1月13日からフジテレビ系「月9」枠にて放送開始！",
+    link: "https://www.fujitv.co.jp/119emcall/"
+  },
+  { 
     title: "アンダーニンジャ", 
     image: "/images/ninja.webp",
     description: "現代忍者エンターテインメント開幕。忍者ニンジャは世界中に忍び、現代いまでも暗躍している。その数、約20万人――。",

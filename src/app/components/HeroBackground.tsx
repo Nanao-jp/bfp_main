@@ -28,8 +28,8 @@ export default function HeroBackground({ videoSrc, imageSrc, imageAlt }: HeroBac
             src={imageSrc}
             alt={imageAlt}
             fill
-            className="object-cover"
             priority
+            className="object-cover"
           />
           <video
             autoPlay

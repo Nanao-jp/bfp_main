@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import Header from "./components/Header";
@@ -8,16 +8,17 @@ const outfit = Outfit({
   display: "swap",
 });
 
+export const viewport: Viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
+  themeColor: "#1E1E1E",
+};
+
 export const metadata: Metadata = {
   title: "Big Fighter Project",
   description: "芸能プロダクション ビッグファイタープロジェクト",
   keywords: ["芸能プロダクション", "ビッグファイタープロジェクト", "BFP", "タレント", "格闘技", "エンターテインメント"],
-  themeColor: "#1E1E1E",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
   robots: {
     index: true,
     follow: true,
