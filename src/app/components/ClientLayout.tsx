@@ -1,5 +1,6 @@
 'use client';
 
+import { Suspense } from 'react';
 import ErrorBoundary from "./ErrorBoundary";
 import Header from "./Header";
 import CookieConsent from "./CookieConsent";
@@ -16,7 +17,9 @@ export default function ClientLayout({
       <SkipLink />
       <Header />
       <main id="main-content">
-        {children}
+        <Suspense fallback={null}>
+          {children}
+        </Suspense>
       </main>
       <footer className="bg-[#1E1E1E] text-white py-8 border-t border-[#2D2D2D]">
         <div className="container mx-auto px-4">
