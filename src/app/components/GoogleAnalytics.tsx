@@ -9,10 +9,10 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // GTMのデータレイヤーオブジェクトの型定義
-interface GTMDataLayerObject extends Record<string, string | number | boolean | undefined> {
-  'gtm.start': number;
-  event: string;
-  'gtm.blocklist': string;
+type GTMDataLayerObject = Record<string, string | number | boolean | undefined> & {
+  'gtm.start'?: number;
+  event?: string;
+  'gtm.blocklist'?: string;
   page_type?: string;
   page_path?: string;
   user_consent?: boolean;
@@ -23,7 +23,7 @@ interface GTMDataLayerObject extends Record<string, string | number | boolean | 
 // window.dataLayerの型定義を拡張
 declare global {
   interface Window {
-    dataLayer: Array<GTMDataLayerObject>;
+    dataLayer: Array<Record<string, string | number | boolean>>;
   }
 }
 
