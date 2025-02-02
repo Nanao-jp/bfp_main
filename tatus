@@ -1,0 +1,5 @@
+[33mcommit 14ddd432cec2c6945ab8c194c13ed22693ebc8c1[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m
+Author: Nanao <example@gmail.com>
+Date:   Mon Feb 3 02:03:36 2025 +0900
+
+    fix: GAの実装をシンプル化し、不要なクッキーを削除

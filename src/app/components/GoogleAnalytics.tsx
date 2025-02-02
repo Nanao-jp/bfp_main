@@ -12,26 +12,38 @@ export default function GoogleAnalytics() {
     <>
       <Script
         id="gtm-script"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             
-            // プライバシー設定
-            window.dataLayer.push({
-              'consent': 'default',
+            // 初期プライバシー設定
+            gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
-              'security_storage': 'granted'
+              'security_storage': 'granted',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
+              'wait_for_update': 500
             });
 
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-            new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-            j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-            'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            // GTMの非同期読み込み
+            (function(w,d,s,l,i){
+              w[l]=w[l]||[];
+              w[l].push({
+                'gtm.start': new Date().getTime(),
+                event:'gtm.js',
+                'gtm.blocklist': ['adsbygoogle', 'analytics', 'doubleclick', 'googleads']
+              });
+              var f=d.getElementsByTagName(s)[0],
+              j=d.createElement(s);
+              j.async=true;
+              j.defer=true;
+              j.src='https://www.googletagmanager.com/gtm.js?id='+i;
+              f.parentNode.insertBefore(j,f);
             })(window,document,'script','dataLayer','${GTM_ID}');
           `
         }}
@@ -42,6 +54,7 @@ export default function GoogleAnalytics() {
           height="0"
           width="0"
           style={{ display: 'none', visibility: 'hidden' }}
+          title="Google Tag Manager"
         />
       </noscript>
     </>
