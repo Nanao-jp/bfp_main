@@ -11,16 +11,17 @@ export default function HeroSlideshow({ slides }: HeroSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    // フェードイン完了後にスライドショーを開始
+    let intervalId: NodeJS.Timeout;
     const startDelay = setTimeout(() => {
-      const interval = setInterval(() => {
+      intervalId = setInterval(() => {
         setCurrentIndex((current) => (current + 1) % slides.length);
       }, 5000);
-      
-      return () => clearInterval(interval);
-    }, 2000); // フェードイン後、2秒待ってから開始
+    }, 2000);
 
-    return () => clearTimeout(startDelay);
+    return () => {
+      clearTimeout(startDelay);
+      if (intervalId) clearInterval(intervalId);
+    };
   }, [slides.length]);
 
   return (

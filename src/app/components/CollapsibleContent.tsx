@@ -12,20 +12,16 @@ export default function CollapsibleContent({ isExpanded, children }: Collapsible
   const [height, setHeight] = useState<number>(0);
 
   useEffect(() => {
-    if (!isExpanded) {
-      setHeight(0);
-      return;
-    }
-    if (contentRef.current) {
-      setHeight(contentRef.current.scrollHeight);
-    }
+    if (!contentRef.current) return;
+    
+    setHeight(isExpanded ? contentRef.current.scrollHeight : 0);
   }, [isExpanded]);
 
   return (
     <div 
       ref={contentRef}
       style={{ height: `${height}px` }}
-      className={`overflow-hidden ${isExpanded ? 'transition-[height] duration-300 ease-in-out' : ''}`}
+      className="overflow-hidden transition-[height] duration-300 ease-in-out"
     >
       {children}
     </div>

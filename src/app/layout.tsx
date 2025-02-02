@@ -74,10 +74,12 @@ export const metadata: Metadata = {
     creator: "@bigfighterproject",
   },
   other: {
+    'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'black',
     'format-detection': 'telephone=no',
     'Cache-Control': 'public, max-age=31536000, immutable',
+    'viewport-fit': 'cover'
   }
 };
 
