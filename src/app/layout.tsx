@@ -98,10 +98,12 @@ export default function RootLayout({
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
         <Suspense fallback={null}>
           <GoogleAnalytics />
-          <ClientLayout>
-            {children}
-          </ClientLayout>
         </Suspense>
+        <ClientLayout>
+          <Suspense fallback={null}>
+            {children}
+          </Suspense>
+        </ClientLayout>
       </body>
     </html>
   );
