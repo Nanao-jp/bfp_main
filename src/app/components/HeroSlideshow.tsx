@@ -12,15 +12,15 @@ export default function HeroSlideshow({ slides }: HeroSlideshowProps) {
 
   useEffect(() => {
     // フェードイン完了後にスライドショーを開始
-    const timer = setTimeout(() => {
+    const startDelay = setTimeout(() => {
       const interval = setInterval(() => {
         setCurrentIndex((current) => (current + 1) % slides.length);
       }, 5000);
       
       return () => clearInterval(interval);
-    }, 2000); // フェードイン後、1秒待ってから開始
+    }, 2000); // フェードイン後、2秒待ってから開始
 
-    return () => clearTimeout(timer);
+    return () => clearTimeout(startDelay);
   }, [slides.length]);
 
   return (
@@ -36,6 +36,7 @@ export default function HeroSlideshow({ slides }: HeroSlideshowProps) {
             src={slide}
             alt={`スライド ${index + 1}`}
             fill
+            sizes="100vw"
             className="object-cover"
             priority={index === 0}
           />
