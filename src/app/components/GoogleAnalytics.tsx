@@ -201,47 +201,19 @@ export default function GoogleAnalytics() {
       <Script
         id="gtm-script"
         strategy="afterInteractive"
+        src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
         onLoad={() => {
           console.log('GTM main script loaded');
+          // GTMの初期化
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({
+            'gtm.start': new Date().getTime(),
+            event: 'gtm.js',
+            'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
+          });
         }}
         onError={(e) => {
           console.error('GTMスクリプトの読み込みエラー:', e);
-        }}
-        dangerouslySetInnerHTML={{
-          __html: `
-            (function(w,d,s,l,i){
-              try {
-                if (w[l]) {
-                  console.log('GTM already initialized');
-                  return;
-                }
-                w[l]=w[l]||[];
-                w[l].push({
-                  'gtm.start': new Date().getTime(),
-                  event:'gtm.js',
-                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
-                });
-
-                var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s);
-                j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i;
-                j.crossOrigin='anonymous';
-                j.addEventListener('load', function() {
-                  console.log('GTM script loaded successfully');
-                });
-                j.addEventListener('error', function(error) {
-                  console.error('GTM script load error:', error);
-                });
-                f.parentNode.insertBefore(j,f);
-                
-                // デバッグ情報
-                console.log('GTM initialization attempted with ID:', i);
-              } catch (error) {
-                console.error('GTMの初期化中にエラーが発生しました:', error);
-              }
-            })(window,document,'script','dataLayer','${GTM_ID}');
-          `
         }}
       />
       <noscript>
