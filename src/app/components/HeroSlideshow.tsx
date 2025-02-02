@@ -11,24 +11,17 @@ export default function HeroSlideshow({ slides }: HeroSlideshowProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
 
   useEffect(() => {
-    console.log('Slideshow mounted, current index:', currentIndex);
-    
-    const interval = setInterval(() => {
-      console.log('Interval triggered');
-      setCurrentIndex((current) => {
-        const next = (current + 1) % slides.length;
-        console.log('Updating index:', current, '->', next);
-        return next;
-      });
-    }, 5000);
+    // フェードイン完了後にスライドショーを開始
+    const timer = setTimeout(() => {
+      const interval = setInterval(() => {
+        setCurrentIndex((current) => (current + 1) % slides.length);
+      }, 5000);
+      
+      return () => clearInterval(interval);
+    }, 2000); // フェードイン後、1秒待ってから開始
 
-    return () => {
-      console.log('Cleaning up interval');
-      clearInterval(interval);
-    };
+    return () => clearTimeout(timer);
   }, [slides.length]);
-
-  console.log('Rendering with index:', currentIndex);
 
   return (
     <div className="relative w-full h-full">
@@ -41,7 +34,7 @@ export default function HeroSlideshow({ slides }: HeroSlideshowProps) {
         >
           <Image
             src={slide}
-            alt={`Slide ${index + 1}`}
+            alt={`スライド ${index + 1}`}
             fill
             className="object-cover"
             priority={index === 0}
