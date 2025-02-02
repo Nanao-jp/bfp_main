@@ -1,14 +1,4 @@
-// カスタムウィンドウインターフェースの定義
-declare global {
-  interface Window {
-    dataLayer: Array<{
-      'gtm.start'?: number;
-      event?: string;
-      consent?: 'granted' | 'denied';
-      [key: string]: unknown;
-    }>;
-  }
-}
+// カスタムウィンドウインターフェースの定義は削除し、gtm.d.tsを使用
 
 export const getCookieConsent = (): boolean => {
   if (typeof window === 'undefined') return false;
