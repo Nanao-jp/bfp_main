@@ -2,11 +2,8 @@
 
 import Link from 'next/link';
 import { Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
 
 function NotFoundContent() {
-  const searchParams = useSearchParams();
-  
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
       <div className="max-w-md w-full mx-4 p-8 bg-[#1E1E1E] rounded-xl shadow-lg text-center">
