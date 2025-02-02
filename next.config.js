@@ -47,10 +47,11 @@ const nextConfig = {
             key: 'Content-Security-Policy',
             value: [
               "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://www.google-analytics.com",
+              "script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.google-analytics.com",
               "connect-src 'self' https://www.google-analytics.com",
               "img-src 'self' data: https://www.google-analytics.com",
               "style-src 'self' 'unsafe-inline'",
+              "frame-src 'self' https://www.youtube-nocookie.com",
               "frame-ancestors 'none'",
               "base-uri 'self'",
               "form-action 'self'",

@@ -37,6 +37,7 @@ export default function HeroBackground({ videoSrc, imageSrc, imageAlt }: HeroBac
             playsInline
             className="absolute inset-0 w-full h-full object-cover"
             onEnded={() => setVideoEnded(true)}
+            onError={() => setVideoEnded(true)}
           >
             <source src={videoSrc} type="video/mp4" />
           </video>
@@ -49,8 +50,6 @@ export default function HeroBackground({ videoSrc, imageSrc, imageAlt }: HeroBac
       }`}>
         <HeroSlideshow 
           slides={SLIDES}
-          duration={5000}
-          transitionDuration={1000}
         />
       </div>
     </div>
