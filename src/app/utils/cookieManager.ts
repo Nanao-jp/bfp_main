@@ -1,7 +1,6 @@
 // カスタムウィンドウインターフェースの定義は削除し、gtm.d.tsを使用
 
 const COOKIE_CONSENT_KEY = 'cookie-consent';
-const COOKIE_EXPIRY = 365; // 日数
 
 interface CookieOptions {
   path?: string;

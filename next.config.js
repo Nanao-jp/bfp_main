@@ -20,8 +20,7 @@ const nextConfig = {
   pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   experimental: {
     optimizeCss: true,
-    scrollRestoration: true,
-    optimizeImages: true,
+    scrollRestoration: true
   },
   httpAgentOptions: {
     keepAlive: true
@@ -32,70 +31,13 @@ const nextConfig = {
         source: '/:path*',
         headers: [
           {
-            key: 'X-DNS-Prefetch-Control',
-            value: 'on',
-          },
-          {
-            key: 'X-XSS-Protection',
-            value: '1; mode=block',
-          },
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN',
-          },
-          {
-            key: 'X-Content-Type-Options',
-            value: 'nosniff',
-          },
-          {
-            key: 'Referrer-Policy',
-            value: 'strict-origin-when-cross-origin',
-          },
-          {
             key: 'Content-Security-Policy',
-            value: [
-              "default-src 'self'",
-              "script-src 'self' 'unsafe-inline' https://*.googletagmanager.com https://*.google-analytics.com",
-              "connect-src 'self' https://*.google-analytics.com",
-              "img-src 'self' data: https://*.google-analytics.com",
-              "style-src 'self' 'unsafe-inline' https://fonts.googleapis.com",
-              "font-src 'self' https://fonts.gstatic.com",
-              "frame-src 'self' https://www.youtube-nocookie.com",
-              "frame-ancestors 'none'",
-              "base-uri 'self'",
-              "form-action 'self'",
-              "upgrade-insecure-requests",
-              "block-all-mixed-content"
-            ].join('; '),
+            value: "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; media-src 'self' blob:; worker-src 'self' blob:; frame-src 'self' https://www.youtube-nocookie.com"
           },
           {
             key: 'Permissions-Policy',
-            value: [
-              'camera=()',
-              'microphone=()',
-              'geolocation=()',
-              'interest-cohort=()',
-              'autoplay=()',
-              'payment=()',
-              'usb=()'
-            ].join(', ')
-          },
-          {
-            key: 'Set-Cookie',
-            value: 'Path=/; Secure; SameSite=Strict; HttpOnly',
-          },
-          {
-            key: 'Cache-Control',
-            value: 'public, max-age=31536000, immutable',
-          },
-          {
-            key: 'Surrogate-Control',
-            value: 'public, max-age=31536000',
-          },
-          {
-            key: 'Pragma',
-            value: 'no-cache',
-          },
+            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()'
+          }
         ],
       },
     ];
