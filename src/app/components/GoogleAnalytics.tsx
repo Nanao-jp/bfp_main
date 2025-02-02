@@ -34,22 +34,31 @@ export default function GoogleAnalytics() {
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'functionality_storage': 'denied',
-              'security_storage': 'granted',
+              'security_storage': 'denied',
               'ad_storage': 'denied',
               'ad_user_data': 'denied',
               'ad_personalization': 'denied',
               'wait_for_update': 500
             });
 
+            // Disable automatic sign-in
+            window.google = window.google || {};
+            window.google.accounts = window.google.accounts || {};
+            window.google.accounts.id = window.google.accounts.id || {};
+            window.google.accounts.id.auto = false;
+            window.google.accounts.id.prompt = false;
+
             gtag('js', new Date());
             gtag('config', '${GA_ID}', {
               page_path: window.location.pathname,
-              cookie_flags: 'SameSite=None;Secure',
+              cookie_flags: 'SameSite=Strict;Secure',
               client_storage: 'none',
               anonymize_ip: true,
               allow_google_signals: false,
               allow_ad_personalization_signals: false,
-              restricted_data_processing: true
+              restricted_data_processing: true,
+              cookie_update: false,
+              cookie_expires: 0
             });
           `
         }}
