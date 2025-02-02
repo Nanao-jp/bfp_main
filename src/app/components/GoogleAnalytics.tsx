@@ -9,8 +9,7 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // GTMのデータレイヤーオブジェクトの型定義
-interface GTMDataLayerObject {
-  [key: string]: string | number | boolean | undefined;
+interface GTMDataLayerObject extends Record<string, string | number | boolean | undefined> {
   'gtm.start': number;
   event: string;
   'gtm.blocklist': string;
