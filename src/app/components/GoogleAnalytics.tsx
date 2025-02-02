@@ -8,6 +8,13 @@ import { getCookieConsent } from '../utils/cookieManager';
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
+// 環境変数のデバッグ
+console.log('Environment Variables:', {
+  GA_MEASUREMENT_ID,
+  GTM_ID,
+  NODE_ENV: process.env.NODE_ENV
+});
+
 // デバッグ用：スクリプトの読み込みを監視
 const monitorScripts = () => {
   const observer = new MutationObserver((mutations) => {
