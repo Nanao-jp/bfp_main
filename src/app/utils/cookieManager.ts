@@ -1,7 +1,7 @@
 // カスタムウィンドウインターフェースの定義
 declare global {
   interface Window {
-    'ga-disable-GA_MEASUREMENT_ID': boolean;
+    dataLayer: any[];
   }
 }
 
@@ -13,12 +13,21 @@ export const getCookieConsent = (): boolean => {
 
 export const setThirdPartyCookies = (enabled: boolean) => {
   if (typeof window === 'undefined') return;
-  
-  // Google Analytics
+
+  // Google Tag Manager
   if (enabled) {
-    window['ga-disable-GA_MEASUREMENT_ID'] = false;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js',
+      consent: 'granted'
+    });
   } else {
-    window['ga-disable-GA_MEASUREMENT_ID'] = true;
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({
+      event: 'consent_update',
+      consent: 'denied'
+    });
   }
 
   // YouTube埋め込み
@@ -32,8 +41,6 @@ export const setThirdPartyCookies = (enabled: boolean) => {
     embed.setAttribute('loading', 'lazy');
     embed.setAttribute('data-no-cookie', 'true');
   });
-
-  // その他のサードパーティCookieの制御をここに追加
 };
 
 export const initializeCookieConsent = () => {
