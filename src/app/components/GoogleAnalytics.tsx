@@ -19,11 +19,29 @@ export default function GoogleAnalytics() {
           __html: `
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
-              'analytics_storage': 'denied',
+              'analytics_storage': 'granted',
               'ad_storage': 'denied',
-              'functionality_storage': 'denied',
+              'functionality_storage': 'granted',
               'personalization_storage': 'denied',
-              'security_storage': 'denied'
+              'security_storage': 'granted',
+              'restrict_third_party_cookies': true,
+              'cookie_domain': 'bigfighterproject.com'
+            });
+          `
+        }}
+      />
+      <Script
+        id="gtm-config"
+        strategy="afterInteractive"
+        dangerouslySetInnerHTML={{
+          __html: `
+            function gtag(){dataLayer.push(arguments);}
+            gtag('consent', 'default', {
+              'analytics_storage': 'granted',
+              'ad_storage': 'denied',
+              'functionality_storage': 'granted',
+              'personalization_storage': 'denied',
+              'security_storage': 'granted'
             });
           `
         }}
