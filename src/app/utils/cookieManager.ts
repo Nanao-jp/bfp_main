@@ -1,6 +1,8 @@
 // カスタムウィンドウインターフェースの定義
-interface CustomWindow extends Window {
-  'ga-disable-GA_MEASUREMENT_ID': boolean;
+declare global {
+  interface Window {
+    'ga-disable-GA_MEASUREMENT_ID': boolean;
+  }
 }
 
 export const getCookieConsent = (): boolean => {
@@ -14,9 +16,9 @@ export const setThirdPartyCookies = (enabled: boolean) => {
   
   // Google Analytics
   if (enabled) {
-    (window as CustomWindow)['ga-disable-GA_MEASUREMENT_ID'] = false;
+    window['ga-disable-GA_MEASUREMENT_ID'] = false;
   } else {
-    (window as CustomWindow)['ga-disable-GA_MEASUREMENT_ID'] = true;
+    window['ga-disable-GA_MEASUREMENT_ID'] = true;
   }
 
   // YouTube埋め込み
