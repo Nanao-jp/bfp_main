@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useEffect, useCallback } from 'react';
-import { setThirdPartyCookies } from '../../utils/cookieManager';
+import { setAnalyticsCookies } from '../../utils/cookieManager';
 
 export default function CookieConsent() {
   const [isVisible, setIsVisible] = useState(false);
@@ -15,13 +15,13 @@ export default function CookieConsent() {
 
   const handleAccept = useCallback(() => {
     localStorage.setItem('cookie-consent', 'accepted');
-    setThirdPartyCookies(true);
+    setAnalyticsCookies(true);
     setIsVisible(false);
   }, []);
 
   const handleDecline = useCallback(() => {
     localStorage.setItem('cookie-consent', 'declined');
-    setThirdPartyCookies(false);
+    setAnalyticsCookies(false);
     setIsVisible(false);
   }, []);
 

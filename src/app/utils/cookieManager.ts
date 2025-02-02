@@ -9,13 +9,6 @@ export const getCookieConsent = (): boolean => {
 export const setAnalyticsCookies = (enabled: boolean) => {
   if (typeof window === 'undefined') return;
 
-  const cookieSettings = {
-    path: '/',
-    secure: true,
-    sameSite: 'strict',
-    maxAge: enabled ? 7200 : 0
-  };
-
   // 不要なCookieを削除
   const cookiesToRemove = [
     'COMPASS',
