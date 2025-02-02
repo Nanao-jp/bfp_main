@@ -18,13 +18,14 @@ interface CustomDataLayerObject {
   user_consent?: boolean;
   ga_measurement_id?: string;
   consent?: 'granted' | 'denied';
+  [key: string]: string | number | boolean | undefined;
 }
 
 // window.dataLayerの型定義を拡張
 declare global {
   interface Window {
-    dataLayer: CustomDataLayerObject[];
-    gtag: typeof gtag;
+    dataLayer: Array<Record<string, string | number | boolean>>;
+    gtag: Gtag.Gtag;
   }
 }
 
@@ -85,6 +86,11 @@ const initialDataLayer = {
   ga_measurement_id: GA_MEASUREMENT_ID,
 };
 
+// 型アサーションヘルパー
+const pushToDataLayer = (data: CustomDataLayerObject) => {
+  window.dataLayer.push(data as Record<string, string | number | boolean>);
+};
+
 export default function GoogleAnalytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
@@ -104,7 +110,7 @@ export default function GoogleAnalytics() {
     // データレイヤーの初期化（同意状態に関係なく実行）
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push(initialDataLayer);
+      window.dataLayer.push(initialDataLayer as Record<string, string | number | boolean>);
 
       // Cookieの制御を強化
       const restrictCookies = () => {
@@ -231,7 +237,7 @@ export default function GoogleAnalytics() {
             event: 'gtm.js',
             'gtm.blocklist': 'customScripts,html,nonjs,customPixels,adv'
           };
-          window.dataLayer.push(gtmData);
+          pushToDataLayer(gtmData);
         }}
         onError={(e) => {
           console.error('GTMスクリプトの読み込みエラー:', e);
