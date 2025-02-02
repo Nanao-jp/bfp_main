@@ -48,11 +48,19 @@ const nextConfig = {
               "font-src 'self' https://fonts.gstatic.com",
               "frame-src 'self' https://www.youtube.com https://www.youtube-nocookie.com",
               "connect-src 'self' https://www.google-analytics.com",
+              "form-action 'self'",
+              "base-uri 'self'",
+              "frame-ancestors 'none'",
+              "upgrade-insecure-requests"
             ].join('; '),
           },
           {
             key: 'Permissions-Policy',
-            value: 'camera=(), microphone=(), geolocation=()',
+            value: 'camera=(), microphone=(), geolocation=(), interest-cohort=()',
+          },
+          {
+            key: 'Set-Cookie',
+            value: 'Path=/; Secure; SameSite=Strict; HttpOnly',
           },
         ],
       },

@@ -48,7 +48,11 @@ export default function GoogleAnalytics() {
             gtag('js', new Date());
             gtag('config', '${GA_MEASUREMENT_ID}', {
               page_path: window.location.pathname,
-              cookie_flags: 'SameSite=None;Secure'
+              cookie_flags: 'SameSite=None;Secure',
+              anonymize_ip: true,
+              client_storage: 'none',
+              allow_google_signals: false,
+              allow_ad_personalization_signals: false
             });
           `,
         }}
