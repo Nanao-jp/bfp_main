@@ -52,23 +52,7 @@ const cookiePatterns = [
   // Google Analytics関連
   /^_ga/,
   /^_gid/,
-  /^_gat/,
-  // Google Tag Manager関連
-  /^_dc_gtm_/,
-  /^_gat_gtag_/,
-  // Google一般
-  /^COMPASS$/,
-  /^__Secure-/,
-  /^__Host-/,
-  /^AID$/,
-  /^LSOLH$/,
-  /^NID$/,
-  /^APISID$/,
-  /^SAPISID$/,
-  /^HSID$/,
-  /^SID$/,
-  /^SSID$/,
-  /^SIDCC$/,
+  /^_gat/
 ];
 
 const getDomains = () => {
@@ -77,9 +61,7 @@ const getDomains = () => {
     window.location.hostname,
     `.${window.location.hostname}`,
     '.google.com',
-    'www.google.com',
-    '.youtube.com',
-    'www.youtube.com'
+    'www.google.com'
   ];
 };
 
@@ -111,18 +93,11 @@ export const setAnalyticsCookies = (enabled: boolean) => {
     });
   }
 
-  // GTMの設定を更新
+  // GA4の設定を更新
   window.dataLayer = window.dataLayer || [];
   window.dataLayer.push({
     event: 'cookie_consent_update',
-    analytics_storage: enabled ? 'granted' : 'denied',
-    ad_storage: 'denied',
-    ad_user_data: 'denied',
-    ad_personalization: 'denied',
-    security_storage: 'granted',
-    functionality_storage: 'denied',
-    personalization_storage: 'denied',
-    wait_for_update: 500
+    analytics_storage: enabled ? 'granted' : 'denied'
   });
 };
 
