@@ -1,7 +1,12 @@
 // カスタムウィンドウインターフェースの定義
 declare global {
   interface Window {
-    dataLayer: any[];
+    dataLayer: Array<{
+      'gtm.start'?: number;
+      event?: string;
+      consent?: 'granted' | 'denied';
+      [key: string]: unknown;
+    }>;
   }
 }
 
