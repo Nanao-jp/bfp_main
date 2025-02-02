@@ -13,7 +13,7 @@ interface DataLayerObject {
 declare global {
   interface Window {
     dataLayer: DataLayerObject[];
-    gtag: (...args: any[]) => void;
+    gtag: (command: string, ...args: unknown[]) => void;
   }
 }
 
