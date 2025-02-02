@@ -9,7 +9,7 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // GTMのデータレイヤーオブジェクトの型定義
-type GTMDataLayerObject = Record<string, string | number | boolean | undefined> & {
+interface CustomDataLayerObject {
   'gtm.start'?: number;
   event?: string;
   'gtm.blocklist'?: string;
@@ -23,7 +23,8 @@ type GTMDataLayerObject = Record<string, string | number | boolean | undefined> 
 // window.dataLayerの型定義を拡張
 declare global {
   interface Window {
-    dataLayer: Array<Record<string, string | number | boolean>>;
+    dataLayer: CustomDataLayerObject[];
+    gtag: typeof gtag;
   }
 }
 
@@ -225,7 +226,7 @@ export default function GoogleAnalytics() {
           console.log('GTM main script loaded');
           // GTMの初期化
           window.dataLayer = window.dataLayer || [];
-          const gtmData: GTMDataLayerObject = {
+          const gtmData: CustomDataLayerObject = {
             'gtm.start': new Date().getTime(),
             event: 'gtm.js',
             'gtm.blocklist': 'customScripts,html,nonjs,customPixels,adv'
