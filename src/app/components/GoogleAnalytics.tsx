@@ -20,7 +20,7 @@ export default function GoogleAnalytics() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    // データレイヤーの初期化
+    // データレイヤーの初期化（同意状態に関係なく実行）
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(initialDataLayer);
@@ -32,12 +32,13 @@ export default function GoogleAnalytics() {
     }
     
     const hasConsent = getCookieConsent();
-    if (!hasConsent) {
-      window.dataLayer?.push({ user_consent: false });
-      return;
-    }
+    // 同意状態をデータレイヤーに反映
+    window.dataLayer?.push({
+      event: hasConsent ? 'consent_granted' : 'consent_denied',
+      user_consent: hasConsent
+    });
 
-    window.dataLayer?.push({ user_consent: true });
+    if (!hasConsent) return;
 
     const handleRouteChange = () => {
       try {
@@ -73,9 +74,13 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             window.gtag = gtag;
+            // デフォルトですべてのストレージを無効化
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
-              'ad_storage': 'denied'
+              'ad_storage': 'denied',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
+              'security_storage': 'denied'
             });
           `
         }}
@@ -90,6 +95,7 @@ export default function GoogleAnalytics() {
           __html: `
             (function(w,d,s,l,i){
               try {
+                if (w[l]) return; // 既に初期化されている場合は終了
                 w[l]=w[l]||[];
                 w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
                 var f=d.getElementsByTagName(s)[0],
