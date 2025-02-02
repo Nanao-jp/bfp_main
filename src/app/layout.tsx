@@ -78,10 +78,7 @@ export const metadata: Metadata = {
     'apple-mobile-web-app-status-bar-style': 'black',
     'format-detection': 'telephone=no',
     'Cache-Control': 'public, max-age=31536000, immutable',
-  },
-  verification: {
-    google: 'your-google-site-verification',
-  },
+  }
 };
 
 export default function RootLayout({
@@ -96,6 +93,8 @@ export default function RootLayout({
         <Suspense fallback={null}>
           <GoogleAnalytics />
         </Suspense>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
         <ClientLayout>
