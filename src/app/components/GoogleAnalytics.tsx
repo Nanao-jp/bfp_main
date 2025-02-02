@@ -9,17 +9,24 @@ const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // GTMのデータレイヤーオブジェクトの型定義
-type GTMDataLayerObject = {
-  'gtm.start'?: number;
-  event?: string;
-  'gtm.blocklist'?: string;
+interface GTMDataLayerObject {
+  'gtm.start': number;
+  event: string;
+  'gtm.blocklist': string;
   page_type?: string;
   page_path?: string;
   user_consent?: boolean;
   ga_measurement_id?: string;
   consent?: 'granted' | 'denied';
-  [key: string]: string | number | boolean | undefined;
-};
+}
+
+// window.dataLayerの型定義を拡張
+declare global {
+  interface Window {
+    dataLayer: Array<Record<string, string | number | boolean>>;
+    gtag: (command: string, ...args: unknown[]) => void;
+  }
+}
 
 // 環境変数のデバッグ
 console.log('Environment Variables:', {
