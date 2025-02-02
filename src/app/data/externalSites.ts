@@ -9,19 +9,19 @@ export const externalSites: ExternalSite[] = [
   {
     title: "Big Bang Box",
     imageUrl: "/images/BBB.jpg",
-    imageAlt: "Big Bang Box",
+    imageAlt: "Big Bang Boxのロゴと施設の外観",
     href: "#"
   },
   {
     title: "MAWS",
     imageUrl: "/images/MAWS.jpg",
-    imageAlt: "MAWS",
+    imageAlt: "MAWSのブランドロゴとサービスイメージ",
     href: "#"
   },
   {
     title: "YouTube",
     imageUrl: "/images/youtube.jpg",
-    imageAlt: "YouTube",
+    imageAlt: "BFP公式YouTubeチャンネルのサムネイル",
     href: "#"
   }
 ]; 

@@ -16,7 +16,7 @@ const outfit = Outfit({
 export const viewport: Viewport = {
   width: "device-width",
   initialScale: 1,
-  maximumScale: 1,
+  maximumScale: 5,
   themeColor: "#1E1E1E",
 };
 
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
         url: "/OGP.webp",
         width: 1200,
         height: 630,
-        alt: "Big Fighter Project",
+        alt: "Big Fighter Project - タレントと格闘家のマネジメント・プロモーション",
       },
     ],
     locale: "ja_JP",
