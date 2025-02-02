@@ -53,7 +53,9 @@ const nextConfig = {
               "style-src 'self' 'unsafe-inline'",
               "frame-ancestors 'none'",
               "base-uri 'self'",
-              "form-action 'self'"
+              "form-action 'self'",
+              "upgrade-insecure-requests",
+              "block-all-mixed-content"
             ].join('; '),
           },
           {

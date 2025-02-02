@@ -13,7 +13,7 @@ export default function GoogleAnalytics() {
   return (
     <Script
       id="google-analytics"
-      strategy="afterInteractive"
+      strategy="lazyOnload"
       dangerouslySetInnerHTML={{
         __html: `
           window.dataLayer = window.dataLayer || [];
@@ -23,7 +23,8 @@ export default function GoogleAnalytics() {
             send_page_view: false,
             client_storage: 'none',
             anonymize_ip: true,
-            restricted_data_processing: true
+            restricted_data_processing: true,
+            page_path: window.location.pathname
           });
         `
       }}
