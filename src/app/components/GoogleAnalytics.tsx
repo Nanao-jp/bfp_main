@@ -6,20 +6,22 @@ import { getCookieConsent } from '../utils/cookieManager';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 export default function GoogleAnalytics() {
-  const hasConsent = getCookieConsent();
-  if (!GTM_ID || !hasConsent) {
+  if (!GTM_ID || !getCookieConsent()) {
     return null;
   }
 
   return (
     <>
       <Script
-        id="gtm-config"
+        id="gtm-init"
         strategy="beforeInteractive"
         dangerouslySetInnerHTML={{
           __html: `
-            document.cookie = 'same-site-cookie=value; SameSite=Lax; Secure';
             window.dataLayer = window.dataLayer || [];
+            window.dataLayer.push({
+              'analytics_storage': 'denied',
+              'ad_storage': 'denied'
+            });
           `
         }}
       />
