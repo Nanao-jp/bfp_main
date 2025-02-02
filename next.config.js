@@ -12,9 +12,6 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
-  experimental: {
-    optimizeCss: true,
-  },
   headers: async () => {
     return [
       {
