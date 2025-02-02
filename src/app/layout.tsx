@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
-import GoogleAnalytics from "./components/GoogleAnalytics";
+// import GoogleAnalytics from "./components/GoogleAnalytics";
 import ClientLayout from "./components/ClientLayout";
 
 const outfit = Outfit({ 
