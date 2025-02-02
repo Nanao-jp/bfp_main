@@ -3,7 +3,6 @@ import { Outfit } from "next/font/google";
 import "./globals.css";
 import JsonLd from "./components/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
-import { Suspense } from 'react';
 import ClientLayout from "./components/ClientLayout";
 
 const outfit = Outfit({ 
