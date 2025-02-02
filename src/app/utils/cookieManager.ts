@@ -31,7 +31,10 @@ export const setAnalyticsCookies = (enabled: boolean) => {
     'SAPISID',
     'HSID',
     'SID',
-    'SSID'
+    'SSID',
+    // GTM関連のクッキー
+    '_dc_gtm_*',
+    '_gat_gtag_*'
   ];
 
   const domains = [
