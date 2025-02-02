@@ -24,10 +24,6 @@ interface GTMDataLayerObject {
 declare global {
   interface Window {
     dataLayer: Array<Record<string, string | number | boolean>>;
-    gtag: (
-      command: string,
-      ...args: (string | number | boolean | Record<string, string | number | boolean>)[]
-    ) => void;
   }
 }
 
