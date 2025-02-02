@@ -24,6 +24,26 @@ export default function GoogleAnalytics() {
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push(initialDataLayer);
+
+      // Cookieの制御を強化
+      const restrictCookies = () => {
+        document.cookie.split(';').forEach(cookie => {
+          const [name] = cookie.split('=');
+          if (name.trim().startsWith('_ga') || 
+              name.trim().startsWith('_gid') || 
+              name.trim().startsWith('_gat') ||
+              name.trim().startsWith('COMPASS') ||
+              name.trim().startsWith('__Secure-OSID')) {
+            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${window.location.hostname}`;
+          }
+        });
+      };
+
+      // 同意がない場合はCookieを制限
+      const hasConsent = getCookieConsent();
+      if (!hasConsent) {
+        restrictCookies();
+      }
     }
 
     if (!GA_MEASUREMENT_ID || !GTM_ID) {
@@ -32,7 +52,6 @@ export default function GoogleAnalytics() {
     }
     
     const hasConsent = getCookieConsent();
-    // 同意状態をデータレイヤーに反映
     window.dataLayer?.push({
       event: hasConsent ? 'consent_granted' : 'consent_denied',
       user_consent: hasConsent
@@ -74,6 +93,10 @@ export default function GoogleAnalytics() {
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
             window.gtag = gtag;
+
+            // サードパーティCookieをブロック
+            document.cookie = 'same-site-cookie=value; SameSite=Lax';
+            
             // デフォルトですべてのストレージを無効化
             gtag('consent', 'default', {
               'analytics_storage': 'denied',
@@ -81,6 +104,13 @@ export default function GoogleAnalytics() {
               'functionality_storage': 'denied',
               'personalization_storage': 'denied',
               'security_storage': 'denied'
+            });
+
+            // Cookieの設定を制限
+            gtag('set', {
+              'allow_google_signals': false,
+              'allow_ad_personalization_signals': false,
+              'restrict_data_processing': true
             });
           `
         }}
@@ -97,11 +127,15 @@ export default function GoogleAnalytics() {
               try {
                 if (w[l]) return; // 既に初期化されている場合は終了
                 w[l]=w[l]||[];
-                w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+                w[l].push({
+                  'gtm.start': new Date().getTime(),
+                  event:'gtm.js',
+                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels']
+                });
                 var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s);
                 j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+'&l='+l;
                 j.onerror = function() {
                   console.error('GTMの読み込みに失敗しました');
                 };
