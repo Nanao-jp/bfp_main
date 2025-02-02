@@ -93,7 +93,7 @@ export default function RootLayout({
         <JsonLd />
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
-        <GoogleAnalytics />
+        {/* <GoogleAnalytics /> */}
         <ClientLayout>
           {children}
         </ClientLayout>
