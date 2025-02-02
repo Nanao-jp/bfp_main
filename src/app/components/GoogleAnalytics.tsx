@@ -219,20 +219,24 @@ export default function GoogleAnalytics() {
                 w[l].push({
                   'gtm.start': new Date().getTime(),
                   event:'gtm.js',
-                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv'],
-                  'gtm.blacklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
+                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
                 });
+
                 var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s);
                 j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+'&l='+l+'&gtm.blocklist=customScripts,html,nonjs,customPixels,adv';
-                j.onerror = function() {
-                  console.error('GTMの読み込みに失敗しました');
-                };
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i;
+                j.crossOrigin='anonymous';
+                j.addEventListener('load', function() {
+                  console.log('GTM script loaded successfully');
+                });
+                j.addEventListener('error', function(error) {
+                  console.error('GTM script load error:', error);
+                });
                 f.parentNode.insertBefore(j,f);
                 
                 // デバッグ情報
-                console.log('GTM initialization attempted');
+                console.log('GTM initialization attempted with ID:', i);
               } catch (error) {
                 console.error('GTMの初期化中にエラーが発生しました:', error);
               }
