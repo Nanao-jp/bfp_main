@@ -22,8 +22,8 @@ export const setThirdPartyCookies = (enabled: boolean) => {
   }
 
   // YouTube埋め込み
-  const youtubeEmbeds = document.querySelectorAll('iframe[src*="youtube.com"]');
-  youtubeEmbeds.forEach((embed: HTMLIFrameElement) => {
+  const youtubeEmbeds = document.querySelectorAll<HTMLIFrameElement>('iframe[src*="youtube.com"]');
+  Array.from(youtubeEmbeds).forEach((embed) => {
     if (enabled) {
       embed.src = embed.src.replace('youtube-nocookie.com', 'youtube.com');
     } else {
