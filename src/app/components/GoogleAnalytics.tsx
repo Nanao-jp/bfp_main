@@ -20,20 +20,21 @@ interface GTMDataLayerObject {
   consent?: 'granted' | 'denied';
 }
 
-// GTMの設定オブジェクトの型定義
-interface GTMConfigObject {
-  [key: string]: string | number | boolean | undefined;
-  page_path?: string;
-  cookie_flags?: string;
-}
-
 // window.dataLayerの型定義を拡張
 declare global {
   interface Window {
     dataLayer: Array<Record<string, string | number | boolean>>;
     gtag: (
-      command: 'config' | 'event' | 'consent' | 'set',
-      ...args: any[]
+      command: 'config' | 'event',
+      targetId: string,
+      config?: Record<string, string | number | boolean>
+    ) => void | (
+      command: 'consent',
+      state: 'default' | 'update',
+      config: Record<string, 'granted' | 'denied'>
+    ) => void | (
+      command: 'set',
+      config: Record<string, string | number | boolean>
     ) => void;
   }
 }
