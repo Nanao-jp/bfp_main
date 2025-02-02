@@ -44,7 +44,7 @@ export default function HeroVideo({
     const playVideo = async () => {
       try {
         await video.play();
-      } catch (error) {
+      } catch {
         handleError();
       }
     };
