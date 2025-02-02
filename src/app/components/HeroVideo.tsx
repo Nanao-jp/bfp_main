@@ -23,19 +23,16 @@ export default function HeroVideo({
 
   // エラーハンドリング
   const handleError = useCallback((error: unknown) => {
-    console.error('Video error:', error);
     onError?.();
   }, [onError]);
 
   // ビデオの読み込み完了
   const handleLoadedData = useCallback(() => {
-    console.log('Video loaded');
     onLoad?.();
   }, [onLoad]);
 
   // ビデオの再生終了
   const handleEnded = useCallback(() => {
-    console.log('Video ended');
     onEnded?.();
   }, [onEnded]);
 
@@ -47,7 +44,6 @@ export default function HeroVideo({
     const playVideo = async () => {
       try {
         await video.play();
-        console.log('Video playing');
       } catch (error) {
         handleError(error);
       }
