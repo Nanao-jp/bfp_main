@@ -5,7 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { getCookieConsent } from '../utils/cookieManager';
 
-const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID;
+const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 
 export default function GoogleAnalytics() {
   const pathname = usePathname();
@@ -17,11 +17,17 @@ export default function GoogleAnalytics() {
     const hasConsent = getCookieConsent();
     if (!hasConsent) return;
 
-    // ページビューの送信
-    const url = pathname + searchParams.toString();
-    window.gtag('config', GA_MEASUREMENT_ID, {
-      page_path: url,
-    });
+    const handleRouteChange = () => {
+      if (!window.gtag) return;
+
+      // ページビューの送信
+      const url = pathname + (searchParams?.toString() || '');
+      window.gtag('config', GA_MEASUREMENT_ID, {
+        page_path: url,
+      });
+    };
+
+    handleRouteChange();
   }, [pathname, searchParams]);
 
   if (!GA_MEASUREMENT_ID) return null;
