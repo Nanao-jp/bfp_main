@@ -1,17 +1,16 @@
 import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header";
-import CookieConsent from "./components/CookieConsent";
-import ErrorBoundary from "./components/ErrorBoundary";
 import JsonLd from "./components/JsonLd";
 import GoogleAnalytics from "./components/GoogleAnalytics";
-import PrivacyPolicyModal from "./components/PrivacyPolicyModal";
-import SkipLink from "./components/SkipLink";
+import { Suspense } from 'react';
+import ClientLayout from "./components/ClientLayout";
 
 const outfit = Outfit({ 
   subsets: ["latin"],
   display: "swap",
+  variable: '--font-outfit',
+  weight: ['100', '200', '300', '400', '500', '600', '700', '800', '900'],
 });
 
 export const viewport: Viewport = {
@@ -94,27 +93,14 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <JsonLd />
-        <GoogleAnalytics />
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+        </Suspense>
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
-        <ErrorBoundary>
-          <SkipLink />
-          <Header />
-          <main id="main-content">
-            {children}
-          </main>
-          <footer className="bg-[#1E1E1E] text-white py-8 border-t border-[#2D2D2D]">
-            <div className="container mx-auto px-4">
-              <div className="flex flex-col items-center gap-2">
-                <p className="text-gray-400">© 2024 Big Fighter Project. All rights reserved.</p>
-                <div className="text-xs">
-                  <PrivacyPolicyModal />
-                </div>
-              </div>
-            </div>
-          </footer>
-          <CookieConsent />
-        </ErrorBoundary>
+        <ClientLayout>
+          {children}
+        </ClientLayout>
       </body>
     </html>
   );
