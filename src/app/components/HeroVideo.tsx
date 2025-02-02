@@ -22,7 +22,7 @@ export default function HeroVideo({
   const videoRef = useRef<HTMLVideoElement>(null);
 
   // エラーハンドリング
-  const handleError = useCallback((error: unknown) => {
+  const handleError = useCallback(() => {
     onError?.();
   }, [onError]);
 
@@ -45,13 +45,13 @@ export default function HeroVideo({
       try {
         await video.play();
       } catch (error) {
-        handleError(error);
+        handleError();
       }
     };
 
     video.addEventListener('loadeddata', handleLoadedData);
     video.addEventListener('ended', handleEnded);
-    video.addEventListener('error', () => handleError('Video load error'));
+    video.addEventListener('error', () => handleError());
 
     if (isPlaying) {
       playVideo();
@@ -60,7 +60,7 @@ export default function HeroVideo({
     return () => {
       video.removeEventListener('loadeddata', handleLoadedData);
       video.removeEventListener('ended', handleEnded);
-      video.removeEventListener('error', () => handleError('Video load error'));
+      video.removeEventListener('error', () => handleError());
       video.pause();
     };
   }, [isPlaying, handleLoadedData, handleEnded, handleError]);
