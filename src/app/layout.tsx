@@ -96,9 +96,7 @@ export default function RootLayout({
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
-        <Suspense fallback={null}>
-          <GoogleAnalytics />
-        </Suspense>
+        <GoogleAnalytics />
         <ClientLayout>
           {children}
         </ClientLayout>

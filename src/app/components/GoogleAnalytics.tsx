@@ -2,11 +2,18 @@
 
 import Script from 'next/script';
 import { getCookieConsent } from '../utils/cookieManager';
+import { useEffect, useState } from 'react';
 
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID;
 
 export default function GoogleAnalytics() {
-  if (!GTM_ID || !getCookieConsent()) return null;
+  const [isConsented, setIsConsented] = useState(false);
+
+  useEffect(() => {
+    setIsConsented(getCookieConsent());
+  }, []);
+
+  if (!GTM_ID || !isConsented) return null;
 
   return (
     <>
