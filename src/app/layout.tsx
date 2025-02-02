@@ -1,3 +1,5 @@
+'use server';
+
 import type { Metadata, Viewport } from "next";
 import { Outfit } from "next/font/google";
 import "./globals.css";
@@ -98,12 +100,10 @@ export default function RootLayout({
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
         <Suspense fallback={null}>
           <GoogleAnalytics />
-        </Suspense>
-        <ClientLayout>
-          <Suspense fallback={null}>
+          <ClientLayout>
             {children}
-          </Suspense>
-        </ClientLayout>
+          </ClientLayout>
+        </Suspense>
       </body>
     </html>
   );
