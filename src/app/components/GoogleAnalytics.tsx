@@ -26,7 +26,7 @@ declare global {
     dataLayer: Array<Record<string, string | number | boolean>>;
     gtag: (
       command: string,
-      ...args: any[]
+      ...args: (string | number | boolean | Record<string, string | number | boolean>)[]
     ) => void;
   }
 }
@@ -212,7 +212,7 @@ export default function GoogleAnalytics() {
             document.cookie = 'same-site-cookie=value; SameSite=Lax; Secure';
             
             // デフォルトですべてのストレージを無効化
-            safeGtag.consent('default', {
+            window.gtag('consent', 'default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'functionality_storage': 'denied',
@@ -221,7 +221,7 @@ export default function GoogleAnalytics() {
             });
 
             // Cookieの設定を制限
-            safeGtag.set({
+            window.gtag('set', {
               'allow_google_signals': false,
               'allow_ad_personalization_signals': false,
               'restrict_data_processing': true,
