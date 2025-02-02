@@ -12,6 +12,7 @@ const nextConfig = {
   poweredByHeader: false,
   compress: true,
   reactStrictMode: true,
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx'],
   headers: async () => {
     return [
       {

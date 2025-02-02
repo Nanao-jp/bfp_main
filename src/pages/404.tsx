@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function NotFound() {
+export default function Custom404() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
       <div className="max-w-md w-full mx-4 p-8 bg-[#1E1E1E] rounded-xl shadow-lg text-center">
