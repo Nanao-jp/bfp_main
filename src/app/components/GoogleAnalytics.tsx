@@ -8,6 +8,14 @@ import { getCookieConsent } from '../utils/cookieManager';
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
+// GTMのデータレイヤーオブジェクトの型定義
+type GTMDataLayerObject = {
+  'gtm.start'?: number;
+  event?: string;
+  'gtm.blocklist'?: string;
+  [key: string]: any;
+};
+
 // 環境変数のデバッグ
 console.log('Environment Variables:', {
   GA_MEASUREMENT_ID,
@@ -206,11 +214,12 @@ export default function GoogleAnalytics() {
           console.log('GTM main script loaded');
           // GTMの初期化
           window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({
+          const gtmData: GTMDataLayerObject = {
             'gtm.start': new Date().getTime(),
             event: 'gtm.js',
-            'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
-          });
+            'gtm.blocklist': 'customScripts,html,nonjs,customPixels,adv'
+          };
+          window.dataLayer.push(gtmData);
         }}
         onError={(e) => {
           console.error('GTMスクリプトの読み込みエラー:', e);
