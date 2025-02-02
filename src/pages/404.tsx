@@ -1,9 +1,6 @@
-'use client';
-
-import { Suspense } from 'react';
 import Link from 'next/link';
 
-function NotFoundContent() {
+export default function Custom404() {
   return (
     <div className="min-h-[70vh] flex items-center justify-center">
       <div className="max-w-md w-full mx-4 p-8 bg-[#1E1E1E] rounded-xl shadow-lg text-center">
@@ -20,21 +17,5 @@ function NotFoundContent() {
         </Link>
       </div>
     </div>
-  );
-}
-
-export default function NotFound() {
-  return (
-    <Suspense 
-      fallback={
-        <div className="min-h-[70vh] flex items-center justify-center">
-          <div className="text-center">
-            <h1 className="text-4xl font-bold mb-4">読み込み中...</h1>
-          </div>
-        </div>
-      }
-    >
-      <NotFoundContent />
-    </Suspense>
   );
 } 
