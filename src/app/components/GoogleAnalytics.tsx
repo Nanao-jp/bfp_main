@@ -10,6 +10,7 @@ const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
 // GTMのデータレイヤーオブジェクトの型定義
 interface GTMDataLayerObject {
+  [key: string]: string | number | boolean | undefined;
   'gtm.start': number;
   event: string;
   'gtm.blocklist': string;
@@ -23,7 +24,7 @@ interface GTMDataLayerObject {
 // window.dataLayerの型定義を拡張
 declare global {
   interface Window {
-    dataLayer: Array<Record<string, string | number | boolean>>;
+    dataLayer: Array<GTMDataLayerObject>;
   }
 }
 
