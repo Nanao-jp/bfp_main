@@ -24,11 +24,13 @@ export const setThirdPartyCookies = (enabled: boolean) => {
   // YouTube埋め込み
   const youtubeEmbeds = document.querySelectorAll<HTMLIFrameElement>('iframe[src*="youtube.com"]');
   Array.from(youtubeEmbeds).forEach((embed) => {
-    if (enabled) {
-      embed.src = embed.src.replace('youtube-nocookie.com', 'youtube.com');
-    } else {
+    // プライバシー強化モードを常時有効化
+    if (embed.src.includes('youtube.com')) {
       embed.src = embed.src.replace('youtube.com', 'youtube-nocookie.com');
     }
+    // 追加のプライバシー設定
+    embed.setAttribute('loading', 'lazy');
+    embed.setAttribute('data-no-cookie', 'true');
   });
 
   // その他のサードパーティCookieの制御をここに追加

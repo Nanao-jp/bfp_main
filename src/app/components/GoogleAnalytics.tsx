@@ -52,7 +52,11 @@ export default function GoogleAnalytics() {
               anonymize_ip: true,
               client_storage: 'none',
               allow_google_signals: false,
-              allow_ad_personalization_signals: false
+              allow_ad_personalization_signals: false,
+              storage: 'none',
+              storeGac: false,
+              cookieExpires: 0,
+              restrictDataProcessing: true
             });
           `,
         }}
