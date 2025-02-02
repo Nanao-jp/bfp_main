@@ -24,11 +24,10 @@ interface GTMDataLayerObject {
 declare global {
   interface Window {
     dataLayer: Array<Record<string, string | number | boolean>>;
-    gtag: {
-      (command: 'config' | 'event', targetId: string, config?: Record<string, string | number | boolean>): void;
-      (command: 'consent', state: 'default' | 'update', config: Record<string, 'granted' | 'denied'>): void;
-      (command: 'set', config: Record<string, string | number | boolean>): void;
-    }
+    gtag: (
+      command: string,
+      ...args: any[]
+    ) => void;
   }
 }
 
@@ -87,6 +86,19 @@ const initialDataLayer = {
   page_type: 'default',
   user_consent: false,
   ga_measurement_id: GA_MEASUREMENT_ID,
+};
+
+// 型安全な関数をラップして使用
+const safeGtag = {
+  config: (targetId: string, config?: Record<string, string | number | boolean>) => {
+    window.gtag('config', targetId, config);
+  },
+  consent: (state: 'default' | 'update', config: Record<string, 'granted' | 'denied'>) => {
+    window.gtag('consent', state, config);
+  },
+  set: (config: Record<string, string | number | boolean>) => {
+    window.gtag('set', config);
+  }
 };
 
 export default function GoogleAnalytics() {
@@ -200,7 +212,7 @@ export default function GoogleAnalytics() {
             document.cookie = 'same-site-cookie=value; SameSite=Lax; Secure';
             
             // デフォルトですべてのストレージを無効化
-            gtag('consent', 'default', {
+            safeGtag.consent('default', {
               'analytics_storage': 'denied',
               'ad_storage': 'denied',
               'functionality_storage': 'denied',
@@ -209,7 +221,7 @@ export default function GoogleAnalytics() {
             });
 
             // Cookieの設定を制限
-            gtag('set', {
+            safeGtag.set({
               'allow_google_signals': false,
               'allow_ad_personalization_signals': false,
               'restrict_data_processing': true,
