@@ -13,7 +13,12 @@ type GTMDataLayerObject = {
   'gtm.start'?: number;
   event?: string;
   'gtm.blocklist'?: string;
-  [key: string]: any;
+  page_type?: string;
+  page_path?: string;
+  user_consent?: boolean;
+  ga_measurement_id?: string;
+  consent?: 'granted' | 'denied';
+  [key: string]: string | number | boolean | undefined;
 };
 
 // 環境変数のデバッグ
