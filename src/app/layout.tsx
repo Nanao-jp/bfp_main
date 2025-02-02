@@ -92,16 +92,16 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <JsonLd />
-        <Suspense fallback={null}>
-          <GoogleAnalytics />
-        </Suspense>
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
-        <ClientLayout>
-          {children}
-        </ClientLayout>
+        <Suspense fallback={null}>
+          <GoogleAnalytics />
+          <ClientLayout>
+            {children}
+          </ClientLayout>
+        </Suspense>
       </body>
     </html>
   );
