@@ -88,19 +88,6 @@ const initialDataLayer = {
   ga_measurement_id: GA_MEASUREMENT_ID,
 };
 
-// 型安全な関数をラップして使用
-const safeGtag = {
-  config: (targetId: string, config?: Record<string, string | number | boolean>) => {
-    window.gtag('config', targetId, config);
-  },
-  consent: (state: 'default' | 'update', config: Record<string, 'granted' | 'denied'>) => {
-    window.gtag('consent', state, config);
-  },
-  set: (config: Record<string, string | number | boolean>) => {
-    window.gtag('set', config);
-  }
-};
-
 export default function GoogleAnalytics() {
   const pathname = usePathname();
   const searchParams = useSearchParams();
