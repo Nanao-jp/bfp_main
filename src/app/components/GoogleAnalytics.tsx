@@ -24,18 +24,11 @@ interface GTMDataLayerObject {
 declare global {
   interface Window {
     dataLayer: Array<Record<string, string | number | boolean>>;
-    gtag: (
-      command: 'config' | 'event',
-      targetId: string,
-      config?: Record<string, string | number | boolean>
-    ) => void | (
-      command: 'consent',
-      state: 'default' | 'update',
-      config: Record<string, 'granted' | 'denied'>
-    ) => void | (
-      command: 'set',
-      config: Record<string, string | number | boolean>
-    ) => void;
+    gtag: {
+      (command: 'config' | 'event', targetId: string, config?: Record<string, string | number | boolean>): void;
+      (command: 'consent', state: 'default' | 'update', config: Record<string, 'granted' | 'denied'>): void;
+      (command: 'set', config: Record<string, string | number | boolean>): void;
+    }
   }
 }
 
