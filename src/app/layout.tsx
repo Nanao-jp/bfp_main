@@ -100,9 +100,7 @@ export default function RootLayout({
           <GoogleAnalytics />
         </Suspense>
         <ClientLayout>
-          <Suspense fallback={null}>
-            {children}
-          </Suspense>
+          {children}
         </ClientLayout>
       </body>
     </html>

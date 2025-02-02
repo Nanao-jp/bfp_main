@@ -5,7 +5,6 @@ import Header from "./Header";
 import CookieConsent from "./CookieConsent";
 import PrivacyPolicyModal from "./PrivacyPolicyModal";
 import SkipLink from "./SkipLink";
-import { Suspense } from 'react';
 
 export default function ClientLayout({
   children,
@@ -17,11 +16,7 @@ export default function ClientLayout({
       <SkipLink />
       <Header />
       <main id="main-content">
-        <Suspense fallback={null}>
-          <ErrorBoundary>
-            {children}
-          </ErrorBoundary>
-        </Suspense>
+        {children}
       </main>
       <footer className="bg-[#1E1E1E] text-white py-8 border-t border-[#2D2D2D]">
         <div className="container mx-auto px-4">
