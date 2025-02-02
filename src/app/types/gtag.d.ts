@@ -5,8 +5,8 @@ interface Window {
     config?: {
       page_path?: string;
       cookie_flags?: string;
-      [key: string]: any;
+      [key: string]: string | number | boolean | undefined;
     }
   ) => void;
-  dataLayer: any[];
+  dataLayer: Record<string, string | number | boolean>[];
 } 
