@@ -91,8 +91,6 @@ export default function RootLayout({
     <html lang="ja">
       <head>
         <JsonLd />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
       </head>
       <body className={`${outfit.className} bg-[var(--dark-surface)] text-white`}>
         <GoogleAnalytics />
