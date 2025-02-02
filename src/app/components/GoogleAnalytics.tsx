@@ -8,6 +8,49 @@ import { getCookieConsent } from '../utils/cookieManager';
 const GA_MEASUREMENT_ID = process.env.NEXT_PUBLIC_GA_ID || '';
 const GTM_ID = process.env.NEXT_PUBLIC_GTM_ID || '';
 
+// デバッグ用：スクリプトの読み込みを監視
+const monitorScripts = () => {
+  const observer = new MutationObserver((mutations) => {
+    mutations.forEach((mutation) => {
+      mutation.addedNodes.forEach((node) => {
+        if (node.nodeName === 'SCRIPT') {
+          const script = node as HTMLScriptElement;
+          console.log('Script loaded:', {
+            src: script.src,
+            type: script.type,
+            async: script.async,
+            defer: script.defer
+          });
+        }
+      });
+    });
+  });
+
+  observer.observe(document.documentElement, {
+    childList: true,
+    subtree: true
+  });
+
+  return observer;
+};
+
+// デバッグ用：Cookieの変更を監視
+const monitorCookies = () => {
+  let lastCookies = document.cookie;
+  
+  setInterval(() => {
+    const currentCookies = document.cookie;
+    if (currentCookies !== lastCookies) {
+      console.log('Cookie changed:', {
+        old: lastCookies,
+        new: currentCookies,
+        timestamp: new Date().toISOString()
+      });
+      lastCookies = currentCookies;
+    }
+  }, 1000);
+};
+
 // 初期データレイヤーの設定
 const initialDataLayer = {
   page_type: 'default',
@@ -20,6 +63,17 @@ export default function GoogleAnalytics() {
   const searchParams = useSearchParams();
 
   useEffect(() => {
+    // デバッグ用の監視を開始
+    const scriptObserver = monitorScripts();
+    monitorCookies();
+
+    // クリーンアップ
+    return () => {
+      scriptObserver.disconnect();
+    };
+  }, []);
+
+  useEffect(() => {
     // データレイヤーの初期化（同意状態に関係なく実行）
     if (typeof window !== 'undefined') {
       window.dataLayer = window.dataLayer || [];
@@ -27,20 +81,34 @@ export default function GoogleAnalytics() {
 
       // Cookieの制御を強化
       const restrictCookies = () => {
-        document.cookie.split(';').forEach(cookie => {
+        const cookies = document.cookie.split(';');
+        console.log('Current cookies before restriction:', cookies);
+
+        cookies.forEach(cookie => {
           const [name] = cookie.split('=');
           if (name.trim().startsWith('_ga') || 
               name.trim().startsWith('_gid') || 
               name.trim().startsWith('_gat') ||
               name.trim().startsWith('COMPASS') ||
               name.trim().startsWith('__Secure-OSID')) {
-            document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${window.location.hostname}`;
+            try {
+              document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=.${window.location.hostname}`;
+              document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/; domain=${window.location.hostname}`;
+              document.cookie = `${name}=; expires=Thu, 01 Jan 1970 00:00:00 GMT; path=/;`;
+              console.log(`Attempted to remove cookie: ${name}`);
+            } catch (error) {
+              console.error(`Failed to remove cookie ${name}:`, error);
+            }
           }
         });
+
+        console.log('Cookies after restriction:', document.cookie.split(';'));
       };
 
       // 同意がない場合はCookieを制限
       const hasConsent = getCookieConsent();
+      console.log('Cookie consent status:', hasConsent);
+      
       if (!hasConsent) {
         restrictCookies();
       }
@@ -88,6 +156,9 @@ export default function GoogleAnalytics() {
       <Script
         id="gtm-init"
         strategy="beforeInteractive"
+        onLoad={() => {
+          console.log('GTM init script loaded');
+        }}
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
@@ -95,7 +166,7 @@ export default function GoogleAnalytics() {
             window.gtag = gtag;
 
             // サードパーティCookieをブロック
-            document.cookie = 'same-site-cookie=value; SameSite=Lax';
+            document.cookie = 'same-site-cookie=value; SameSite=Lax; Secure';
             
             // デフォルトですべてのストレージを無効化
             gtag('consent', 'default', {
@@ -110,14 +181,22 @@ export default function GoogleAnalytics() {
             gtag('set', {
               'allow_google_signals': false,
               'allow_ad_personalization_signals': false,
-              'restrict_data_processing': true
+              'restrict_data_processing': true,
+              'client_storage': 'none',
+              'client_id': false
             });
+
+            // デバッグ情報
+            console.log('GTM init configuration complete');
           `
         }}
       />
       <Script
         id="gtm-script"
         strategy="afterInteractive"
+        onLoad={() => {
+          console.log('GTM main script loaded');
+        }}
         onError={(e) => {
           console.error('GTMスクリプトの読み込みエラー:', e);
         }}
@@ -125,21 +204,28 @@ export default function GoogleAnalytics() {
           __html: `
             (function(w,d,s,l,i){
               try {
-                if (w[l]) return; // 既に初期化されている場合は終了
+                if (w[l]) {
+                  console.log('GTM already initialized');
+                  return;
+                }
                 w[l]=w[l]||[];
                 w[l].push({
                   'gtm.start': new Date().getTime(),
                   event:'gtm.js',
-                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels']
+                  'gtm.blocklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv'],
+                  'gtm.blacklist': ['customScripts', 'html', 'nonjs', 'customPixels', 'adv']
                 });
                 var f=d.getElementsByTagName(s)[0],
                 j=d.createElement(s);
                 j.async=true;
-                j.src='https://www.googletagmanager.com/gtm.js?id='+i+'&l='+l;
+                j.src='https://www.googletagmanager.com/gtm.js?id='+i+'&l='+l+'&gtm.blocklist=customScripts,html,nonjs,customPixels,adv';
                 j.onerror = function() {
                   console.error('GTMの読み込みに失敗しました');
                 };
                 f.parentNode.insertBefore(j,f);
+                
+                // デバッグ情報
+                console.log('GTM initialization attempted');
               } catch (error) {
                 console.error('GTMの初期化中にエラーが発生しました:', error);
               }
