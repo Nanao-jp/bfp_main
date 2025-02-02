@@ -31,11 +31,10 @@ interface GTMConfigObject {
 declare global {
   interface Window {
     dataLayer: Array<Record<string, string | number | boolean>>;
-    gtag: {
-      (command: 'config' | 'event', targetId: string, config?: GTMConfigObject): void;
-      (command: 'consent', state: 'default' | 'update', config: Record<string, 'granted' | 'denied'>): void;
-      (command: 'set', config: Record<string, unknown>): void;
-    };
+    gtag: (
+      command: 'config' | 'event' | 'consent' | 'set',
+      ...args: any[]
+    ) => void;
   }
 }
 
