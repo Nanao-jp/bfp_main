@@ -14,13 +14,16 @@ export default function GoogleAnalytics() {
     <>
       <Script
         id="gtm-init"
-        strategy="beforeInteractive"
+        strategy="afterInteractive"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
             window.dataLayer.push({
               'analytics_storage': 'denied',
-              'ad_storage': 'denied'
+              'ad_storage': 'denied',
+              'functionality_storage': 'denied',
+              'personalization_storage': 'denied',
+              'security_storage': 'denied'
             });
           `
         }}
@@ -28,7 +31,7 @@ export default function GoogleAnalytics() {
       <Script
         id="gtm"
         strategy="afterInteractive"
-        src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}`}
+        src={`https://www.googletagmanager.com/gtm.js?id=${GTM_ID}&gtm_auth=&gtm_preview=&gtm_cookies_win=x`}
       />
       <noscript>
         <iframe
