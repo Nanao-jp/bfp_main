@@ -7,7 +7,12 @@ interface ExternalSiteCardProps {
 
 export default function ExternalSiteCard({ site }: ExternalSiteCardProps) {
   return (
-    <a href={site.href} className="block group">
+    <a 
+      href={site.href} 
+      target="_blank"
+      rel="noopener noreferrer"
+      className="block group"
+    >
       <div className="bg-dark-surface-2 rounded-xl overflow-hidden hover:bg-dark-surface-3 transition-all duration-300">
         <div className="flex flex-col md:flex-row">
           <div className="relative md:w-[600px] aspect-[3.36/1]">
