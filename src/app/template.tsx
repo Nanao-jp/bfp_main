@@ -1,6 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
 import styles from './template.module.css'
 
 export default function Template({ children }: { children: React.ReactNode }) {
