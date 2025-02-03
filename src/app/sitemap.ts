@@ -1,7 +1,7 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://bigfighterproject.com';
+  const baseUrl = 'https://www.bfp54.com';
 
   const routes = [
     '',

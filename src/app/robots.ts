@@ -7,6 +7,6 @@ export default function robots(): MetadataRoute.Robots {
       allow: '/',
       disallow: ['/api/', '/admin/'],
     },
-    sitemap: 'https://bigfighterproject.com/sitemap.xml',
+    sitemap: 'https://www.bfp54.com/sitemap.xml',
   };
 } 
