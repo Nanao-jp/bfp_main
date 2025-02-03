@@ -1,5 +1,11 @@
 'use client';
 
+// Google Analytics一時的に無効化中
+export default function GoogleAnalytics() {
+  return null;
+}
+
+/*
 import Script from 'next/script';
 import { getCookieConsent } from '../utils/cookieManager';
 import { useEffect, useState } from 'react';
@@ -7,10 +13,6 @@ import { useEffect, useState } from 'react';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function GoogleAnalytics() {
-  // 一時的に無効化
-  return null;
-
-  /*
   const [isConsented, setIsConsented] = useState(false);
 
   useEffect(() => {
@@ -69,5 +71,5 @@ export default function GoogleAnalytics() {
       />
     </>
   );
-  */
-} 
+}
+*/ 
