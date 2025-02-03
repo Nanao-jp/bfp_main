@@ -35,7 +35,7 @@ export default function GlobalModal({ item, onClose }: CollaborationModalProps) 
     >
       <div 
         ref={modalRef}
-        className="relative w-full max-w-4xl h-[80vh] bg-dark-surface-2 rounded-xl overflow-hidden animate-modalIn focus:outline-none flex flex-col"
+        className="relative w-full max-w-4xl h-[80vh] bg-dark-surface-2 rounded-xl overflow-hidden animate-modalFade focus:outline-none flex flex-col"
         onClick={handleContentClick}
         tabIndex={-1}
       >

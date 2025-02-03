@@ -33,11 +33,6 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
     if (focusableElements && focusableElements.length > 0) {
       (focusableElements[0] as HTMLElement).focus();
     }
-
-    document.body.style.overflow = 'hidden';
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
   }, []);
 
   return (
@@ -55,7 +50,7 @@ export default function TalentModal({ talent, onClose }: TalentModalProps) {
       <div 
         ref={modalRef}
         className="bg-dark-surface-2 rounded-xl max-w-5xl w-full h-[90vh] overflow-hidden
-          animate-modalSlideIn relative"
+          animate-modalFade relative"
       >
         <button
           onClick={onClose}
