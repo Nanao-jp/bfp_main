@@ -7,6 +7,10 @@ import { useEffect, useState } from 'react';
 const GA_ID = process.env.NEXT_PUBLIC_GA_ID;
 
 export default function GoogleAnalytics() {
+  // 一時的に無効化
+  return null;
+
+  /*
   const [isConsented, setIsConsented] = useState(false);
 
   useEffect(() => {
@@ -65,4 +69,5 @@ export default function GoogleAnalytics() {
       />
     </>
   );
+  */
 } 
