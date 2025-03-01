@@ -2,6 +2,12 @@ import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
   { 
+    title: "サメ遊戯",
+    image: "/images/sameYugi.jpg",
+    description: "松島トモ子主演、\"バカ映画\"の巨匠河崎実監督によるサメ映画「松島トモ子 サメ遊戯」が4月4日公開される。",
+    link: "https://gameofshark.com/"
+  },
+  { 
     title: "119エマージェンシーコール",
     image: "/images/119.jpg",
     description: "『119エマージェンシーコール』（いちいちきゅーエマージェンシーコール）2025年1月13日からフジテレビ系「月9」枠にて放送開始！",

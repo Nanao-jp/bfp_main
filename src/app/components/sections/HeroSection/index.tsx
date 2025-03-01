@@ -3,7 +3,9 @@ import HeroBackground from "../../HeroBackground";
 const SLIDES = [
   "/images/ninja.webp",
   "/images/haretara.webp",
-  "/images/gozira.webp"
+  "/images/gozira.webp",
+  "/images/E119.jpg",
+  "/images/sameYugi.jpg"
 ] as const;
 
 export default function HeroSection() {
