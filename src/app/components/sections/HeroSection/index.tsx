@@ -2,9 +2,9 @@ import HeroBackground from "../../HeroBackground";
 
 const SLIDES = [
   "/images/ninja.webp",
-  "/images/haretara.webp",
+  "/images/meoto.jpg",
   "/images/gozira.webp",
-  "/images/E119.jpg",
+  "/images/pj.jpg",
   "/images/sameYugi.jpg"
 ] as const;
 

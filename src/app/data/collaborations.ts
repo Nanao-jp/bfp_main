@@ -2,6 +2,18 @@ import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
   { 
+    title: "波うららかに、めおと日和",
+    image: "/images/meoto.jpg",
+    description: "昭和11年の春。関谷なつ美（芳根京子）は父・篤三（高橋努）から結婚話を言い渡される。2025年4月24日スタート 毎週木曜 よる10時放送",
+    link: "https://www.fujitv.co.jp/meotobiyori/"
+  },
+  { 
+    title: "PJ ~航空救難団~",
+    image: "/images/pj.jpg",
+    description: "2025年4月24日からテレビ朝日系「木曜ドラマ」枠で放送中のテレビドラマ",
+    link: "https://www.tv-asahi.co.jp/pj/"
+  },
+  { 
     title: "サメ遊戯",
     image: "/images/sameYugi.jpg",
     description: "松島トモ子主演、\"バカ映画\"の巨匠河崎実監督によるサメ映画「松島トモ子 サメ遊戯」が4月4日公開される。",
