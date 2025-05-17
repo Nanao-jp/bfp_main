@@ -2,6 +2,18 @@ import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
   { 
+    title: "あんぱん",
+    image: "/images/anpan.jpeg",
+    description: "“アンパンマン”を生み出したやなせたかしと暢の夫婦をモデルに、生きる意味も失っていた苦悩の日々と、それでも夢を忘れなかった二人の人生。",
+    link: "https://www.nhk.jp/p/anpan/ts/M9R26K3JZ3/"
+  },
+  { 
+    title: "雪風 - YUKIKAZE",
+    image: "/images/yukikaze.jpg",
+    description: "たった80年前。平和な海が戦場だった時代。帰ることを夢見ながら戦い続けた兵士たちや、その無事を祈り、待ち続けた家族たち。彼らひとつひとつの人生にはどんな物語があり、それぞれが何を想い続けていたのか。",
+    link: "https://www.yukikaze-movie.jp/"
+  },
+  { 
     title: "波うららかに、めおと日和",
     image: "/images/meoto.jpg",
     description: "昭和11年の春。関谷なつ美（芳根京子）は父・篤三（高橋努）から結婚話を言い渡される。2025年4月24日スタート 毎週木曜 よる10時放送",
