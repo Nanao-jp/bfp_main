@@ -1,6 +1,7 @@
 import HeroBackground from "../../HeroBackground";
 
 const SLIDES = [
+  "/images/Kurebates02.webp",
   "/images/anpan.jpeg",
   "/images/yukikaze.jpg",
   "/images/meoto.jpg",

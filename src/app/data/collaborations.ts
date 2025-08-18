@@ -1,6 +1,12 @@
 import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
+  {
+    title: "クレバテス",
+    image: "/images/Kurebates02.webp",
+    description: "2025年7月2日（水）より全27局にて放送開始！幼い頃から勇者に憧れていたアリシアは、王に選ばれし13人の勇者の1人となる。\n\n第一話に弊社より陸上自衛隊出身の役者が、声優として4人参加！",
+    link: "https://clevatess.com/"
+  },
   { 
     title: "あんぱん",
     image: "/images/anpan.jpeg",
@@ -37,19 +43,14 @@ export const collaborationItems: CollaborationItem[] = [
     description: "『119エマージェンシーコール』（いちいちきゅーエマージェンシーコール）2025年1月13日からフジテレビ系「月9」枠にて放送開始！",
     link: "https://www.fujitv.co.jp/119emcall/"
   },
-  { 
-    title: "アンダーニンジャ", 
-    image: "/images/ninja.webp",
-    description: "現代忍者エンターテインメント開幕。忍者ニンジャは世界中に忍び、現代いまでも暗躍している。その数、約20万人――。",
-    link: "https://underninja-mv.com/"
-  },
+  // 以下のエントリは後方へ移動
   { 
     title: "晴れたらいいね", 
     image: "/images/haretara.webp",
     description: "永野芽郁主演の感動のヒューマンドラマ。現代の看護師が戦時中へタイムスリップ。困難な状況を強く生き抜こうとする前向きな物語。",
     link: "https://www.tv-tokyo.co.jp/haretara/"
   },
-  {
+  {  
     title: "龍が如く～Beyond the Game～",
     image: "/images/RyugaGotoku.webp",
     description: "Amazon オリジナルドラマ「龍が如く～Beyond the Game～」2024年10月25日より公開",
@@ -78,12 +79,6 @@ export const collaborationItems: CollaborationItem[] = [
     image: "/images/CityHunter.webp",
     description: "Netflix映画「シティーハンター」2024年4月25日より公開\n\n2024年9月27日よりイオンシネマ シアタス調布、イオンシネマ シアタス心斎橋にて2週間限定ロードショー。\nNetflixにて世界独占配信中!",
     link: "https://eiga.com/news/20240907/5/"
-  },
-  {
-    title: "クレバテス",
-    image: "/images/Clevatess.webp",
-    description: "TVアニメ「クレバテス」2025年OA開始\n弊社より4人声優出演",
-    link: "https://clevatess.com/"
   },
   {
     title: "湖の女たち",
