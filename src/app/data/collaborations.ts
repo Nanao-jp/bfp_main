@@ -2,6 +2,24 @@ import { CollaborationItem } from "../components/Collaboration/types";
 
 export const collaborationItems: CollaborationItem[] = [
   {
+    title: "ゾンビランド",
+    image: "/images/zonbirand.jpg",
+    description: "ゾンビランドサガプロジェクト、 その未来のために！",
+    link: "https://zombielandsaga-movie.com/"
+  },
+  {
+    title: "沈黙の艦隊",
+    image: "/images/tinmokuno.jpg",
+    description: "『沈黙の艦隊』劇場版続編、2025年公開決定！",
+    link: "https://silent-service.jp/"
+  },
+  {
+    title: "ベートーベン",
+    image: "/images/be-to-ben.jpg",
+    description: "世の中に伝わる崇高なイメージを“捏造”したのは、彼の忠実なる秘書・シンドラー（山田裕貴）。",
+    link: "https://movies.shochiku.co.jp/beethoven-netsuzou/ijinka-maker/"
+  },
+  {
     title: "クレバテス",
     image: "/images/Kurebates02.webp",
     description: "2025年7月2日（水）より全27局にて放送開始！幼い頃から勇者に憧れていたアリシアは、王に選ばれし13人の勇者の1人となる。\n\n第一話に弊社より陸上自衛隊出身の役者が、声優として4人参加！",
