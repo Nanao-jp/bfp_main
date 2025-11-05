@@ -2,6 +2,30 @@ import { NewsItem } from "../components/NewsCard";
 
 export const newsItems: NewsItem[] = [
   {
+    date: "2025.11.05",
+    title: "ゴジラ-0.0",
+    summary: "「ゴジラ-1.0」を手掛けた山崎貴監督による、新作ゴジラのタイトルが「ゴジラ-0.0」(ゴジラマイナスゼロ)に決定した。",
+    content: `「ゴジラ-1.0」を手掛けた山崎貴監督による、新作ゴジラのタイトルが「ゴジラ-0.0」(ゴジラマイナスゼロ)に決定した。山崎氏が監督・脚本・VFXを担当する。タイトル解禁映像も公開された。<br><br>公式HP：<a href="https://godzilla-minuszero.toho-movie.jp/" target="_blank" class="text-[#9EFF00] hover:underline">https://godzilla-minuszero.toho-movie.jp/</a>`,
+    imageUrl: "/images/gozira-zero.jpg",
+    link: "https://godzilla-minuszero.toho-movie.jp/"
+  },
+  {
+    date: "2025.11.05",
+    title: "ゾンビランド",
+    summary: "ゾンビランドサガプロジェクト、 その未来のために！",
+    content: `ゾンビランドサガプロジェクト、 その未来のために！<br><br>公式HP：<a href="https://zombielandsaga-movie.com/" target="_blank" class="text-[#9EFF00] hover:underline">https://zombielandsaga-movie.com/</a>`,
+    imageUrl: "/images/zonbirand.jpg",
+    link: "https://zombielandsaga-movie.com/"
+  },
+  {
+    date: "2025.11.05",
+    title: "沈黙の艦隊",
+    summary: "『沈黙の艦隊』劇場版続編、2025年公開決定！",
+    content: `『沈黙の艦隊』劇場版続編、2025年公開決定！<br><br>公式HP：<a href="https://silent-service.jp/" target="_blank" class="text-[#9EFF00] hover:underline">https://silent-service.jp/</a>`,
+    imageUrl: "/images/tinmokuno.png",
+    link: "https://silent-service.jp/"
+  },
+  {
     date: "2025.08.18",
     title: "TVアニメ『クレバテス』放送開始！",
     summary: "2025年7月2日（水）より全27局にて放送開始！",

@@ -7,7 +7,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '',
     '/talents',
     '/works',
-    '/collaborations',
+    '/news',
     '/contact',
   ].map((route) => ({
     url: `${baseUrl}${route}`,

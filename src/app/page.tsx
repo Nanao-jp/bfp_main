@@ -15,7 +15,7 @@ export default function Home() {
     <>
       <HeroSection />
       <div className="space-y-16 mt-16">
-        <NewsSection />
+        <NewsSection limit={3} />
         <YouTubeSection />
         <CollaborationsSection items={displayedItems} />
         <ExternalSitesSection />

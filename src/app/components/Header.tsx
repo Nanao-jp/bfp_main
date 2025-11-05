@@ -38,6 +38,12 @@ export default function Header() {
               </Link>
             </li>
             <li>
+              <Link href="/news" className="relative group h-8 flex items-center">
+                <span>NEWS</span>
+                <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
+              </Link>
+            </li>
+            <li>
               <Link href="/contact" className="relative group h-8 flex items-center">
                 <span>CONTACT</span>
                 <div className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[var(--accent-lime)] transition-all duration-300 group-hover:w-full" />
@@ -98,6 +104,15 @@ export default function Header() {
                     onClick={toggleMenu}
                   >
                     WORKS
+                  </Link>
+                </li>
+                <li>
+                  <Link
+                    href="/news"
+                    className="block text-lg hover:text-[var(--accent-lime)] transition-colors duration-200"
+                    onClick={toggleMenu}
+                  >
+                    NEWS
                   </Link>
                 </li>
                 <li>
