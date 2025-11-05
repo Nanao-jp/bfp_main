@@ -34,9 +34,9 @@ export default function WorksPage() {
         <h1 className="text-4xl font-bold text-white mb-12">B.F.P. Collaborations</h1>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-          {currentItems.map((item, index) => (
+          {currentItems.map((item) => (
             <CollaborationCard
-              key={`${item.title}-${index}`}
+              key={item.link}
               item={item}
               onClick={() => setSelectedItem(item)}
             />

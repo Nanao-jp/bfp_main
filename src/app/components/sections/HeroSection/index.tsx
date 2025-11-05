@@ -1,10 +1,10 @@
 import HeroBackground from "../../HeroBackground";
 
 const SLIDES = [
-  "/images/zonbirand.jpg",
-  "/images/tinmokuno.jpg",
-  "/images/be-to-ben.jpg",
   "/images/gozira.webp",
+  "/images/tinmokuno.png",
+  "/images/zonbirand.jpg",
+  "/images/gozira-zero.jpg",
 ] as const;
 
 export default function HeroSection() {

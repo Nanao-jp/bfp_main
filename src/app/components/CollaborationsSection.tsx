@@ -2,7 +2,6 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { collaborationItems } from "../data/collaborations";
 import CollaborationCard from "./Collaboration/CollaborationCard";
 import GlobalModal from "./Collaboration/GlobalModal";
 import SectionTitle from "./SectionTitle";
@@ -11,9 +10,11 @@ import { CollaborationItem } from "./Collaboration/types";
 import Container from "./ui/Container";
 import { styles } from "../styles/constants";
 
-const ITEMS_PER_PAGE = 6;
+interface CollaborationsSectionProps {
+  items: CollaborationItem[];
+}
 
-export default function CollaborationsSection() {
+export default function CollaborationsSection({ items }: CollaborationsSectionProps) {
   const [selectedItem, setSelectedItem] = useState<CollaborationItem | null>(null);
 
   return (
@@ -22,9 +23,9 @@ export default function CollaborationsSection() {
         <SectionTitle icon={FilmIcon}>B.F.P. Collaborations</SectionTitle>
 
         <div className="mt-12 grid gap-8 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-          {collaborationItems.slice(0, ITEMS_PER_PAGE).map((item, index) => (
+          {items.map((item) => (
             <CollaborationCard
-              key={index}
+              key={item.link}
               item={item}
               onClick={() => setSelectedItem(item)}
             />

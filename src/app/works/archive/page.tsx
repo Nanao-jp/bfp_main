@@ -22,8 +22,8 @@ export default function ArchivePage() {
         </div>
         
         <div className="space-y-6">
-          {archiveWorks.map((work, index) => (
-            <ArchiveCard key={index} work={work} />
+          {archiveWorks.map((work) => (
+            <ArchiveCard key={`${work.title}-${work.type}`} work={work} />
           ))}
         </div>
       </div>

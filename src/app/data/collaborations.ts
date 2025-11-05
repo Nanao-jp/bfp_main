@@ -1,6 +1,14 @@
 import { CollaborationItem } from "../components/Collaboration/types";
 
+// B.F.P. Collaborations - 最新の協力作品リスト
+// 配列の順序は重要: 最初の要素が最初に表示されます
 export const collaborationItems: CollaborationItem[] = [
+  {
+    title: "ゴジラ-0.0",
+    image: "/images/gozira-zero.jpg",
+    description: "「ゴジラ-1.0」を手掛けた山崎貴監督による、新作ゴジラのタイトルが「ゴジラ-0.0」(ゴジラマイナスゼロ)に決定した。山崎氏が監督・脚本・VFXを担当する。タイトル解禁映像も公開された。",
+    link: "https://godzilla-minuszero.toho-movie.jp/"
+  },
   {
     title: "ゾンビランド",
     image: "/images/zonbirand.jpg",
@@ -9,7 +17,7 @@ export const collaborationItems: CollaborationItem[] = [
   },
   {
     title: "沈黙の艦隊",
-    image: "/images/tinmokuno.jpg",
+    image: "/images/tinmokuno.png",
     description: "『沈黙の艦隊』劇場版続編、2025年公開決定！",
     link: "https://silent-service.jp/"
   },
